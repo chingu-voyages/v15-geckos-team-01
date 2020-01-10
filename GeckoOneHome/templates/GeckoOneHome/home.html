@@ -16,7 +16,7 @@
 
 <body>
     <div class="flex_column">
-    <h1>Welcome Chingus!</h1>
+    <h1>Home Page</h1>
     <li>{{chingu1}}</li>
     <li>{{chingu2}}</li>
     <li>{{chingu3}}</li>
@@ -31,6 +31,7 @@
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
+  <a href="{% url 'signup' %}">signup</a>
 {% endif %}
 {% endblock %}
 </div>
