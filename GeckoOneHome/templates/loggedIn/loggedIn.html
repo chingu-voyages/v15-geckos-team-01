@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <!--  viewport for mobile users -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- links to our css(optional) and javascript file-->
+
+    <title>Geckos Home</title>
+
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+    {% endif %}
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    </body>
+    </html>

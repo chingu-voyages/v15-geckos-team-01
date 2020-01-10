@@ -11,3 +11,5 @@ def load_home(request):
     return render(request, 'GeckoOneHome/home.html', {'chingu1':name1, 'chingu2':name2, 'chingu3':name3, 'chingu4':name4})
 
 
+def load_loggedIn(request):
+    return render(request, 'loggedIn/loggedIn.html')

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <!--  viewport for mobile users -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- links to our css(optional) and javascript file-->
+
+    <title>Geckos Home</title>
+
+</head>
+
+<body>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; font-family: monospace;">
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+</div>
+</body>
+</html>
