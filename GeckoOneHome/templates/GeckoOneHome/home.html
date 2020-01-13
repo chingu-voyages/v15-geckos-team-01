@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- links to our css(optional) and javascript file-->
     <link rel=stylesheet href="{% static 'css/custom_home_css.css' %}" />
-    <!-- LOCAL css file load -->
+    <!-- LOCAL css file load
     <link rel=stylesheet href="local/home_css.css" />
+  -->
+  <script type="text/javascript" href="{% static 'js/test_js.js' %}"></script>
     <title>Geckos Home</title>
 
 </head>
@@ -35,6 +37,9 @@
   <a href="{% url 'signup' %}">signup</a>
 {% endif %}
 {% endblock %}
+</div>
+<div class="flex_column">
+  <h1 id="test_js"></h1>
 </div>
 </body>
 </html>
