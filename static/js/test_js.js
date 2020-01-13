@@ -1,0 +1,1 @@
+//testing JavaScript routing in Django
