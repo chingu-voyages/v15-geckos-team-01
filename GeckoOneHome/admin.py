@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from GeckoOneHome.models import MyUser
+
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ['email']
+
+admin.site.register(MyUser, UserProfileAdmin)
+
+
