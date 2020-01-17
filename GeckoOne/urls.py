@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('GeckoOneHome.urls')),
     path('accounts', include('django.contrib.auth.urls')),
+    path('metrics', include('metrics.urls')),
 ]
