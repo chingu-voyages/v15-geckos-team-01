@@ -12,20 +12,35 @@
     <!-- LOCAL css file load
     <link rel=stylesheet href="local/home_css.css" />
   -->
+  <!--
   <script type="text/javascript" src="{% static 'js/test_js.js' %}"></script>
-    <title>Geckos Home</title>
+-->
+    <title>The Code Track</title>
 
 </head>
 
 <body>
-    <div class="flex_column">
-    <h1>Home Page</h1>
-    <li>{{chingu1}}</li>
-    <li>{{chingu2}}</li>
-    <li>{{chingu3}}</li>
-    <li>{{chingu4}}</li>
-    </div>
+  <nav>
+       <div>CodeTrack</div>
+       <div>About</div>
+       <div>FAQ</div>
+       <div>Contact</div>
+       {% block content %}
+   {% if user.is_authenticated %}
+     Hi {{ user.username }}!
+     <p><a href="{% url 'logout' %}">logout</a></p>
+   {% else %}
+   <!--
+     <p>You are not logged in</p>
+   -->
+     <a href="{% url 'login' %}">login</a>
+     <a href="{% url 'signup' %}">signup</a>
+   {% endif %}
+   {% endblock %}
+       
+   </nav>
 
+<!--
  <div class="flex_column2">
     {% block content %}
 {% if user.is_authenticated %}
@@ -42,6 +57,7 @@
   <h1 id="test_js"></h1>
   <h2>If image appears, static image link is working.</h2>
 </div>
-
+!-->
+<script src="{% static 'js/app.js' %}></script>
 </body>
 </html>

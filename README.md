@@ -1,2 +1,14 @@
 # v15-geckos-team-01
-Add-project-description-here | Voyage-15 | https://chingu.io/ | Twitter: https://twitter.com/ChinguCollabs
+# CodeTrack
+## Overview
+Level up your learning with shared coding resources, tips, and accountability partners.
+## Features
+## Tech used
+* HTML5
+* CSS3
+* Flexbox
+* JavaScript
+* Python
+* Django
+* SQLite
+## Dependencies
