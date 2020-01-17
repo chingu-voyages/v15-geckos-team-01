@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CodeTrack</title>
+
+    <!--  FRONT END DEV LINKS
+    <link rel="stylesheet" href="style.css">
+  -->
+
+    <!-- DJANGO LINKS -->
+    <link rel=stylesheet href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <nav>
+
+        <div><strong>CodeTrack</strong></div>
+        <div class="menu">
+            <div class="menu_items"><a href="#">About</a></div>
+            <div class="menu_items"><a href="#">FAQ</a></div>
+            <div class="menu_items"><a href="#">Contact</a></div>
+            {% if user.is_authenticated %}
+
+              <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
+            {% else %}
+            <!--
+              <p>You are not logged in</p>
+            -->
+            <div class="menu_items">
+              <a href="{% url 'login' %}">login</a>
+              </div>
+              <div class="menu_items">
+              <a href="{% url 'signup' %}">Sign Up</a>
+              </div>
+            {% endif %}
+          
+        </div>
+        <button class="btn_one">Sign Up</button>
+    </nav>
+    <div class="main">
+        <div class="main_left">
+            <h1>Welcome to <strong>CodeTrack</strong>,<br>the place to map out your coding journey with other learners.</h1>
+            <h2>Level up your learning with shared coding resources, tips, and accountability partners.</h2>
+            <button class="btn_two">Sign Up</button>
+            <button class="btn_three">Learn More</button>
+        </div>
+        <div>
+            <p class="temporary">[Insert hero image here]</p>
+        </div>
+    </div>
+    <footer>
+        <!-- Footer placeholder -->
+    </footer>
+    <nav>
+        <div>CodeTrack</div>
+        <div>About</div>
+        <div>FAQ</div>
+        <div>Contact</div>
+        <div>Login</div>
+        <button>Sign Up</button>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
