@@ -4,8 +4,13 @@ body {
 }
 
 h1, h2 {
+    background: #B1EEC1;
     color: white;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 1px 1px 4px black;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
 }
 .flex_column {
     display: flex;

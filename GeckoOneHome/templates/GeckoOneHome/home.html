@@ -20,12 +20,13 @@
 </head>
 
 <body>
-  <nav>
-       <div>CodeTrack</div>
+    <div>
+        <h1>The Code Track</h1>
+  <nav style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;">
        <div>About</div>
        <div>FAQ</div>
        <div>Contact</div>
-       {% block content %}
+
    {% if user.is_authenticated %}
      Hi {{ user.username }}!
      <p><a href="{% url 'logout' %}">logout</a></p>
@@ -33,31 +34,18 @@
    <!--
      <p>You are not logged in</p>
    -->
+   <div>
      <a href="{% url 'login' %}">login</a>
+     </div>
+     <div>
      <a href="{% url 'signup' %}">signup</a>
+     </div>
    {% endif %}
-   {% endblock %}
 
    </nav>
+   </div>
 
-<!--
- <div class="flex_column2">
-    {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-  <a href="{% url 'signup' %}">signup</a>
-{% endif %}
-{% endblock %}
-</div>
-<div class="flex_column" style="background-image: url({% static 'images/white_willow2.jpg' %}); background-position: center; background-size: cover; height: 100%; width: 100%;">
-  <h1 id="test_js"></h1>
-  <h2>If image appears, static image link is working.</h2>
-</div>
-!-->
+
 
 <!-- front end script app.js
 
