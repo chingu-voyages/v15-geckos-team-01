@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -8,11 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- links to our css(optional) and javascript file-->
 
-    <title>Geckos Home</title>
+    <!-- DJANGO LINKS -->
+    <link rel=stylesheet href="{% static 'css/style.css' %}" />
+
+    <title>The Code Track</title>
 
 </head>
 
 <body>
+    <div><a href="/"><strong>CodeTrack</strong></a></div>
+        <div class="menu">
+            <div class="menu_items"><a href="#">About</a></div>
+            <div class="menu_items"><a href="#">FAQ</a></div>
+            <div class="menu_items"><a href="#">Contact</a></div>
+    </div>
+    <div style="height: 10vh;"></div>
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; font-family: monospace;">
 <h2>Login</h2>
 <form method="post">
