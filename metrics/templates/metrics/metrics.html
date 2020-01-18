@@ -8,29 +8,88 @@
     <!--  viewport for mobile users -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- links to our css(optional) and javascript file-->
-    <link rel=stylesheet href="{% static 'css/custom_home_css.css' %}" />
+    <link rel=stylesheet href="{% static 'css/style.css' %}" />
      <link rel=stylesheet href="{% static 'css/custom_metrics.css' %}" />
     <!-- LOCAL css file load
     <link rel=stylesheet href="local/home_css.css" />
   -->
+
+  <!-- DJANGO JS links
   <script type="text/javascript" src="{% static 'js/test_js.js' %}"></script>
+  -->
     <title>Your Code Track</title>
 
 </head>
 
 <body>
+    <nav>
+      <div><a href="/"><strong>CodeTrack</strong></a></div>
+        <div class="menu">
+            <div class="menu_items"><a href="#">About</a></div>
+            <div class="menu_items"><a href="#">FAQ</a></div>
+            <div class="menu_items"><a href="#">Contact</a></div>
+            {% if user.is_authenticated %}
+
+              <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
+            {% else %}
+            <!--
+              <p>You are not logged in</p>
+            -->
+            <div class="menu_items">
+              <a href="{% url 'login' %}">login</a>
+              </div>
+              <div class="menu_items">
+              <a href="{% url 'signup' %}">Sign Up</a>
+              </div>
+            {% endif %}
+
+        </div>
+
+    </nav>
+<main>
     <div class="flex_column">
     <h1 class="large_h1">Metrics</h1>
+
     </div>
 
  <div class="flex_column2">
 
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  <h2> Your Track </h2>
+  <h2> {{ user.email }} </h2>
   <p><a href="{% url 'logout' %}">logout</a></p>
+  <div class="flex_column_container">
+
+      <form action="{% url 'addGoal' %}" method="POST" role="form">
+          {% csrf_token %}
+          <div class="input_form">
+              {{ form.text }}
+
+
+                  <button id="add-btn">ADD</button>
+
+          </div>
+      </form>
+
+
+
+
+
+  </div>
+  <li>
+  {{ user.goals }}
+
   {% for goal in goals_list %}
-  <li>{{goal.text}}</li>
+
+  <li>{{ goal }}
+  {% if goal.id %}
+  <a href="{% url 'deleteGoal' goal.id %}">Delete</a></li>
+  {% else %}
+  <a href='#'></a></li>
+  {% endif %}
   {% endfor %}
+
+  </li>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
@@ -38,10 +97,8 @@
 {% endif %}
 
 </div>
-<div class="flex_column" style="background-image: url({% static 'images/white_willow2.jpg' %}); background-position: center; background-size: cover; height: 100%; width: 100%;">
-  <h1 id="test_js"></h1>
-  <h2>If image appears, static image link is working.</h2>
-</div>
+</main>
+
 
 </body>
 </html>

@@ -2,6 +2,24 @@ body {
     background: rgb(245, 248, 248);
     color: rgb(20, 10, 10);
 }
+.banner {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 3em;
+    margin-bottom: 5vh;
+}
+
+form {
+    background: #E8EAE6;
+    border: 1px solid #C7FCFA;
+    padding: 10px;
+}
+form p{
+    padding: 5px;
+}
 
 h1, h2 {
     background: #B1EEC1;

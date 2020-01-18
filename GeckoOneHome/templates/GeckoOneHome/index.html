@@ -23,6 +23,7 @@
             <div class="menu_items"><a href="#">FAQ</a></div>
             <div class="menu_items"><a href="#">Contact</a></div>
             {% if user.is_authenticated %}
+              <h5>Hello {{ user.email }}</h5>
 
               <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
             {% else %}
@@ -36,9 +37,9 @@
               <a href="{% url 'signup' %}">Sign Up</a>
               </div>
             {% endif %}
-          
+
         </div>
-        <button class="btn_one">Sign Up</button>
+        <button class="btn_one"><a href="{% url 'signup' %}">Sign Up</a></button>
     </nav>
     <div class="main">
         <div class="main_left">
@@ -63,6 +64,9 @@
         <button>Sign Up</button>
     </nav>
 
+    <!-- app.js will error until there is an actual js file for Django to read.
+
     <script src="app.js"></script>
+    -->
 </body>
 </html>

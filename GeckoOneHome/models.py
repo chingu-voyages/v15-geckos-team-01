@@ -4,7 +4,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, date_of_birth, password=None):
+    def create_user(self, email, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -14,14 +14,14 @@ class MyUserManager(BaseUserManager):
 
         user = self.model(
             email=self.normalize_email(email),
-            date_of_birth=date_of_birth,
+
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, date_of_birth, password=None):
+    def create_superuser(self, email, password):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -29,7 +29,7 @@ class MyUserManager(BaseUserManager):
         user = self.create_user(
             email,
             password=password,
-            date_of_birth=date_of_birth,
+
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -41,16 +41,34 @@ class MyUser(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    date_of_birth = models.DateField()
+    username = models.CharField(max_length=40, default=email)
+    date_of_birth = models.DateField(null=True, blank=True)
+
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
-    objects = MyUserManager()
+    # Profile specific db items #
+    bookmarks = models.CharField(max_length=50, default="https://EXAMPLE/THisAWesomeBookmarkIfound/")
+    todo = models.CharField(max_length=40, default="EXAMPLE: Get a puppy.")
+    goals = models.CharField(max_length=40, default="EXAMPLE: Create a chatbot using JavaScript")
+    goal_complete = models.BooleanField(default=False)
+    todo_complete = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['date_of_birth']
+    REQUIRED_FIELDS = []
+    objects = MyUserManager()
 
-    def __str__(self):
+    def get_full_name(self):
+        # The user is identified by their email address
+        return self.email
+
+    def get_short_name(self):
+        # The user is identified by their email address
+        return self.email
+
+    def __str__(self):              # __unicode__ on Python 2
         return self.email
 
     def has_perm(self, perm, obj=None):
@@ -68,5 +86,9 @@ class MyUser(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+
+
+
 
 

@@ -2,3 +2,46 @@
     text-shadow: 1px 1px 5px black;
     font-size: 4em;
 }
+.input_form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.input_form input{
+
+    padding: 2px;
+    font-size: 2em;
+    width: auto;
+}
+.flex_column_container {
+    padding: 5px;
+    color: #87ECA8;
+    background-color: #F3F2F2;
+}
+.flex_column_container li{
+    font-size: 2em;
+    color: black;
+    font-shadow: 1px 1px 1px white;
+}
+
+.flex_column {
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10vh;
+}
+
+.flex_column2 {
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10vh;
+    background: rgb(250, 242, 245);
+    color: rgb(15, 0, 15);
+    padding: 10px;
+}

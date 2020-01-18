@@ -9,14 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- links to our css(optional) and javascript file-->
     <link rel=stylesheet href="{% static 'css/custom_home_css.css' %}" />
-
+    <link rel=stylesheet href="{% static 'css/style.css' %}" />
     <title>Geckos Home</title>
 
 </head>
 
 <body>
+
+    <nav>
+      <div><a href="/"><strong>CodeTrack</strong></a></div>
+        <div class="menu">
+            <div class="menu_items"><a href="#">About</a></div>
+            <div class="menu_items"><a href="#">FAQ</a></div>
+            <div class="menu_items"><a href="#">Contact</a></div>
+            </div>
+    </div>
+    </nav>
     <div class="flex_column">
-<h2>Sign up</h2>
+<h2 class="banner">Sign up</h2>
   <form method="post">
     {% csrf_token %}
      {% for field in form %}

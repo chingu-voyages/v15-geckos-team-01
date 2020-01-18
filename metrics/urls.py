@@ -7,4 +7,6 @@ from . import views
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('metrics', views.load_metrics, name='metrics'),
+    path('addGoal', views.addGoal, name='addGoal'),
+    path('deleteGoal/<goal_id>', views.deleteGoal, name="deleteGoal"),
 ]
