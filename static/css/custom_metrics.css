@@ -1,18 +1,60 @@
 li {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
     background-color: white;
-
     width: auto;
     border: solid 1px darkseagreen;
     border-radius: 10%;
     height: 2em;
     padding-bottom: 2em;
-    padding-top: 1em;
+    padding-top: 2em;
     padding-right: 10px;
     padding-left: 10px;
-    text-align: center;
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+    text-align: left;
+
 }
+
+/* Overriding some style.css elements for responsiveness */
+nav {
+    display: flex;
+    width: 100vw;
+
+}
+
+main {
+    width: 100vw;
+}
+
+.menu {
+    padding: 0;
+}
+
+.menu_items {
+    padding-right: 2vw;
+}
+
+.delete_link {
+    text-align: right;
+
+}
+/* END OVERRIDES */
+
+
+
+
+.todo_box {
+    width: auto;
+    padding: 10px;
+    background-color: #eee9f5;
+}
+.title_home {
+    border-bottom: 1px solid silver;
+}
+
 .large_h1 {
     text-shadow: 1px 1px 5px black;
     font-size: 4em;

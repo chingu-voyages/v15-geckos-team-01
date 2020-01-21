@@ -22,9 +22,10 @@
             <div class="menu_items"><a href="#">About</a></div>
             <div class="menu_items"><a href="#">FAQ</a></div>
             <div class="menu_items"><a href="#">Contact</a></div>
+            <div class="menu_items"><a href="{% url 'metrics' %}">Metrics</a></div>
             {% if user.is_authenticated %}
 
-            <div class="menu_items"><a href="metrics/mytrack.html">Set goals</a></div>
+            <div class="menu_items"><a href="{% url 'myTrack' %}">Set goals</a></div>
 
 
               <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
