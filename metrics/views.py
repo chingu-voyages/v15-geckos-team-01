@@ -6,6 +6,8 @@ from .models import Goal
 from .forms import GoalForm
 from django.views.decorators.http import require_POST
 
+
+#------- load the page ----------#
 def load_metrics(request):
     user_id = request.user
 
@@ -17,11 +19,18 @@ def load_metrics(request):
 
     else:
         form = GoalForm()
-        goals_list = ["no goals currently set.", "Use ADD button to add a goal."]
+        goals_list = ["no task items currently set.", "Use ADD button to add a to-do."]
         user_metrics = {'form': form, 'goals_list': goals_list}
 
         return render(request, 'metrics/metrics.html', user_metrics)
 
+# -------- Front-end  Mytrack load -----#
+
+def load_myTrack(request):
+    #    ADD USER WHEN DB UPDATED   #
+    return render(request, 'metrics/mytrack.html')
+
+#---------- Add and delete Goals ---------#
 @require_POST
 def addGoal(request):
     form = GoalForm(request.POST)
@@ -35,11 +44,15 @@ def addGoal(request):
         new_goal = Goal(text=new_text, user=user_id)
 
         new_goal.save()
-
-
     return redirect('metrics')
+
 
 def deleteGoal(request, goal_id):
     Goal.objects.get(pk=goal_id).delete()
     return redirect('metrics')
+
+#------------ Add and delete bookmarks ---------#
+
+
+
 

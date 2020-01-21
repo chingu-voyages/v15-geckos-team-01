@@ -30,6 +30,9 @@
             <div class="menu_items"><a href="#">Contact</a></div>
             {% if user.is_authenticated %}
 
+            <div class="menu_items"><a href="metrics/mytrack.html">Set goals</a></div>
+
+
               <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
             {% else %}
             <!--
@@ -58,6 +61,7 @@
   <h2> Your Track </h2>
   <h2> {{ user.email }} </h2>
   <p><a href="{% url 'logout' %}">logout</a></p>
+  <h2>My TO DO list:</h2>
   <div class="flex_column_container">
 
       <form action="{% url 'addGoal' %}" method="POST" role="form">
@@ -90,6 +94,15 @@
   {% endfor %}
 
   </li>
+
+  <div class="bookmarks">
+      <div class="flex-column2">
+          <button> Expand </button>
+          <div class="flex_column" style="display: none;">
+          <li><a href="https://chingu.io/">Chingu application</a></li>
+          </div>
+      </div>
+  </div>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>

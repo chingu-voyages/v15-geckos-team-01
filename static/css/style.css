@@ -26,6 +26,10 @@ button {
     padding: 10px 20px;
 }
 
+img {
+    object-fit: contain;
+}
+
 .btn_one {
     font-size: .8em;
 }
@@ -84,5 +88,7 @@ nav {
 
 .temporary {
     font-size: 2em;
-    padding: 100px 350px;
+    padding: 10px;
+    width: 40vw;
+    height: min-content;
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CodeTrack</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- LOCAL
+    <link rel="stylesheet" href="style.css">
+    -->
+    <!-- DJANGO -->
+      <link rel=stylesheet href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <nav>
+
+        <div><a href="/"><strong>CodeTrack</strong></a></div>
+        <div class="menu">
+            <div class="menu_items"><a href="/">About</a></div>
+            <div class="menu_items"><a href="#">FAQ</a></div>
+            <div class="menu_items"><a href="#">Contact</a></div>
+            <div class="menu_items"><a href="#">MyTrack</a></div>
+            <div class="menu_items"><a href="#">Login</a></div>
+        </div>
+        <button class="btn_one">Sign Up</button>
+    </nav>
+
+    <main class="container">
+        <section class="container goals">
+            <form>
+                <h3>What is your long-term goal?</h3>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Goal 1" aria-label="Goal 1" aria-describedby="button-addon4">
+                        <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Edit</button>
+                        <button class="btn btn-outline-secondary" type="button">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <h3>What is your 3-month goal?</h3>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Goal 2" aria-label="Goal 2" aria-describedby="button-addon4">
+                        <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Edit</button>
+                        <button class="btn btn-outline-secondary" type="button">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <h3>What is your 1-month goal?</h3>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Goal 3" aria-label="Goal 3" aria-describedby="button-addon4">
+                        <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Edit</button>
+                        <button class="btn btn-outline-secondary" type="button">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+        </section>
+
+    </main>
+</body>
+</html>

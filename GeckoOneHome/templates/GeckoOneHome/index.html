@@ -23,7 +23,9 @@
             <div class="menu_items"><a href="#">FAQ</a></div>
             <div class="menu_items"><a href="#">Contact</a></div>
             {% if user.is_authenticated %}
-              <h5>Hello {{ user.email }}</h5>
+
+            <div class="menu_items"><a href="metrics/mytrack.html">Set goals</a></div>
+
 
               <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
             {% else %}
@@ -48,10 +50,11 @@
             <button class="btn_two">Sign Up</button>
             <button class="btn_three">Learn More</button>
         </div>
-        <div>
-            <p class="temporary">[Insert hero image here]</p>
-        </div>
+        <p class="temporary">
+            <img src="{% static 'images/smCompass.jpg' %}" alt="A compass held over the view of a dense forest."/>
+        </p>
     </div>
+
     <footer>
         <!-- Footer placeholder -->
     </footer>
