@@ -10,4 +10,5 @@ urlpatterns = [
     path('myTrack', views.load_myTrack, name='myTrack'),
     path('addGoal', views.addGoal, name='addGoal'),
     path('deleteGoal/<goal_id>', views.deleteGoal, name="deleteGoal"),
+    path('add_GoalOne', views.add_GoalOne, name="addGoalOne"),
 ]

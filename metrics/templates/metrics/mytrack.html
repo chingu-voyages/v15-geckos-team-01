@@ -43,11 +43,28 @@
                 <h3>What is your 3-month goal?</h3>
                 <div class="form-group">
                     <div class="input-group">
+                        {% if user.is_authenticated %}
+                        <form action="{% url 'addGoalOne' %}" method="POST" role="form">
+                        {% csrf_token %}
+                        <div class="input_form">
+                        {{ form.text }}
+
+                        <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button">Edit</button>
+                        <button class="btn btn-outline-secondary" type="button">Submit</button>
+                        </div>
+
+                        </div>
+                        </form>
+
+                        <!-- if user is not logged in, they can not access database-->
+                        {% else %}
                         <input type="text" class="form-control" placeholder="Goal 2" aria-label="Goal 2" aria-describedby="button-addon4">
                         <div class="input-group-append" id="button-addon4">
                         <button class="btn btn-outline-secondary" type="button">Edit</button>
                         <button class="btn btn-outline-secondary" type="button">Submit</button>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 <h3>What is your 1-month goal?</h3>
