@@ -37,13 +37,13 @@
             <div class="menu_items"><a href="{% url 'myTrack' %}">Set goals</a></div>
 
 
-              <div class="menu_items"><a href="{% url 'logout' %}">logout</a></div>
+              <div class="menu_items"><a href="{% url 'logout' %}">Logout</a></div>
             {% else %}
             <!--
               <p>You are not logged in</p>
             -->
             <div class="menu_items">
-              <a href="{% url 'login' %}">login</a>
+              <a href="{% url 'login' %}">Login</a>
               </div>
               <div class="menu_items">
               <a href="{% url 'signup' %}">Sign Up</a>
@@ -64,7 +64,7 @@
 {% if user.is_authenticated %}
   <h1> Your Track </h1>
   <h4> {{ user.email }} </h4>
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'logout' %}">Logout</a></p>
   <h2>My TO DO list:</h2>
   <div class="flex_column_container">
 
@@ -111,8 +111,8 @@
   </div>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-  <a href="{% url 'signup' %}">signup</a>
+  <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
 
 </div>

@@ -27,8 +27,8 @@ def signup(request):
 
 
 
-            login(request, user)
-            return redirect('metrics')
+            #login(request, user)
+            return redirect('login')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})

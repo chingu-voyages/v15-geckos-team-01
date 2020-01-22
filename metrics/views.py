@@ -11,7 +11,7 @@ from django.views.decorators.http import require_POST
 def load_metrics(request):
     user_id = request.user
 
-    goals_list = Goal.objects.filter(user=user_id)
+    goals_list = Goal.objects.filter(user_id=user_id)
     if goals_list:
         form = GoalForm()
         user_metrics = {'form': form, 'goals_list': goals_list}
@@ -41,7 +41,7 @@ def addGoal(request):
         # IMPORTANT:  request.POST['text'] will not pass in properly, base10 error
         # must be translated into a variable, and then passed to the model Goal.
         #print("\n\n text = \n\n", text)
-        new_goal = Goal(text=new_text, user=user_id)
+        new_goal = Goal(text=new_text, user_id=user_id)
 
         new_goal.save()
     return redirect('metrics')
