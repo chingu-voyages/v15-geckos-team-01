@@ -1,4 +1,5 @@
 from django import forms
+from .models import  Goal, GoalOne, GoalTwo, GoalThree
 
 
 #---- TODO ITEMS --- #
@@ -10,6 +11,9 @@ class GoalForm(forms.Form):
             'aria-label': 'Set a new To Do item',
             'aria-describedby': 'add-btn'
             }))
+    class Meta:
+        model = Goal
+        fields =['text', 'user']
 
 
 #--- SINGULAR GOALS ----#
@@ -20,8 +24,11 @@ class GoalONEForm(forms.Form):
             'class':'form-control',
             'placeholder': 'Goal 1',
             'aria-label': ' set a new Goal 1.',
-            'aria-describedby': 'button-addon4'
+            'aria-describedby': 'add_goal1_btn'
             }))
+    class Meta:
+        model = GoalOne
+        fields =['text', 'user']
 
 class GoalTWOForm(forms.Form):
     text = forms.CharField(max_length=40,
@@ -32,6 +39,9 @@ class GoalTWOForm(forms.Form):
             'aria-label': 'Set a new goal 2. ',
             'aria-describedby': 'button-addon4'
             }))
+    class Meta:
+        model = GoalTwo
+        fields =['text', 'user']
 
 class GoalTHREEForm(forms.Form):
     text = forms.CharField(max_length=40,
@@ -42,3 +52,7 @@ class GoalTHREEForm(forms.Form):
             'aria-label': 'Set a new goal 3.',
             'aria-describedby': 'button-addon4'
             }))
+
+    class Meta:
+        model = GoalThree
+        fields =['text', 'user']

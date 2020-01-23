@@ -49,12 +49,7 @@ class MyUser(AbstractBaseUser):
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
-    # Profile specific db items #
-    bookmarks = models.CharField(max_length=50, default="https://EXAMPLE/THisAWesomeBookmarkIfound/")
-    todo = models.CharField(max_length=40, default="EXAMPLE: Get a puppy.")
-    goals = models.CharField(max_length=40, default="EXAMPLE: Create a chatbot using JavaScript")
-    goal_complete = models.BooleanField(default=False)
-    todo_complete = models.BooleanField(default=False)
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
