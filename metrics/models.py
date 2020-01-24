@@ -21,7 +21,7 @@ class ToDo(models.Model):
 
 
 class Bookmarks(models.Model):
-    alink = models.CharField(max_length=100, default="A website you wish to save.")
+    alink = models.URLField(max_length=130, default="A website you wish to save.")
     nickname = models.CharField(max_length=40, default="An easy to remember nickname for your link.")
     user = models.ForeignKey(MyUser, on_delete = models.CASCADE,  related_name='+')
 

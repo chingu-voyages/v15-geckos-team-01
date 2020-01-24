@@ -1,5 +1,5 @@
 from django import forms
-from .models import  Goal, GoalOne, GoalTwo, GoalThree
+from .models import  Goal, GoalOne, GoalTwo, GoalThree, Bookmarks
 
 
 #---- TODO ITEMS --- #
@@ -56,3 +56,13 @@ class GoalTHREEForm(forms.Form):
     class Meta:
         model = GoalThree
         fields =['text', 'user']
+
+#---   Bookmarks -----#
+class Bookmark(forms.Form):
+    alink = forms.URLField(max_length=130, required=True, label="The URL you wish to save")
+    nickname = forms.CharField(max_length=40, required=True, label="A nickname to make it easier to find in the list")
+
+    class Meta:
+        model = Bookmarks
+        fields =['alink', 'nickname', 'user']
+

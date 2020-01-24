@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 from django.shortcuts import redirect
 from django.contrib.auth import login, authenticate
-from .models import Goal, GoalOne, GoalTwo, GoalThree
-from .forms import GoalForm, GoalONEForm, GoalTWOForm, GoalTHREEForm
+from .models import Goal, GoalOne, GoalTwo, GoalThree, Bookmarks
+from .forms import GoalForm, GoalONEForm, GoalTWOForm, GoalTHREEForm, Bookmark
 from django.views.decorators.http import require_POST
 
 
@@ -16,6 +16,7 @@ def load_metrics(request):
         longtermgoal = GoalOne.objects.filter(user=user_id).first()
         threemonthgoal=GoalTwo.objects.filter(user=user_id).first()
         shorttermgoal = GoalThree.objects.filter(user=user_id).first()
+        bookmark_list = Bookmarks.objects.filter(user=user_id)
 
         if not goals_list:
             goals_list = ["no task items currently set.", "Use ADD button to add a to-do."]
@@ -25,10 +26,13 @@ def load_metrics(request):
             threemonthgoal = "You have not set a three month goal yet."
         if shorttermgoal == None:
             shorttermgoal = "You have not set your short term goal yet."
+        if not bookmark_list:
+            bookmark_list = [" save some bookmarks here ", "keep them in one place for easier retrieval!", "nickname your links to make them easier to identify"]
 
         form = GoalForm()
+        form4 = Bookmark()
 
-        user_metrics = {'form': form, 'goals_list': goals_list, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
+        user_metrics = {'form': form, 'form4': form4, 'goals_list': goals_list, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal, 'bookmark_list': bookmark_list}
 
         return render(request, 'metrics/metrics.html', user_metrics)
 
@@ -240,9 +244,32 @@ def add_GoalThree(request):
 
             return render(request, 'metrics/mytrack.html')
 
+#----  Bookmarks --------------#
 
 
+@require_POST
+def add_Bookmark(request):
 
+
+    form4 = Bookmark(request.POST)
+
+    if form4.is_valid():
+        user_id = request.user
+        new_URL = request.POST['alink']
+        new_nickname = request.POST['nickname']
+        # IMPORTANT:  request.POST['text'] will not pass in properly, base10 error
+        # must be translated into a variable, and then passed to the model Goal.
+        #print("\n\n text = \n\n", text)
+        new_bookmark = Bookmarks(alink=new_URL, nickname=new_nickname, user=user_id)
+
+        new_bookmark.save()
+
+    return redirect('metrics')
+
+
+def delete_Bookmark(request, url_id):
+    Bookmarks.objects.get(pk=url_id).delete()
+    return redirect('metrics')
 
 
 
