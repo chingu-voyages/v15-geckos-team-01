@@ -1,0 +1,67 @@
+body {
+    font-family: avenir;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-outline-success {
+    margin-right: 5px;
+}
+
+.btn-outline-success:hover {
+    background-color: #87ECA8;
+    border-color: #87ECA8;
+}
+
+.container {
+    display: flex;
+}
+
+.cust {
+    font-weight: bold;
+}
+
+.custom-btn {
+    background-color: #87ECA8;
+    border-color: #87ECA8;
+}
+
+.custom-btn-two {
+    background-color: #CECECE;
+    border-color: #CECECE;
+}
+
+.first {
+    margin: 90px 0 0 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+h4 {
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.image {
+    margin: 40px 0 0 0;
+    width: 500px;
+}
+
+.item-navs {
+    margin: 0 15px;
+}
+
+.logo-one {
+    color: #3F8939;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.logo-two {
+    color: #87ECA8;
+    font-weight: bold;
+    font-size: 1.2em;
+}

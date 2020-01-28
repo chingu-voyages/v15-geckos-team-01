@@ -38,5 +38,5 @@ def signup(request):
 
 def load_home(request):
 
-    return render(request, 'GeckoOneHome/index.html')
+    return render(request, 'GeckoOneHome/bootstrap_home.html')
 
