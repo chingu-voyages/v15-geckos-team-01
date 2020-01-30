@@ -4,14 +4,26 @@ from django.shortcuts import render
 #from django.views import generic
 from django.shortcuts import redirect
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from GeckoOneHome.forms import SignUpForm
+
+# --- USER change password ---#
+from django.contrib.auth import update_session_auth_hash
+
+def password_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+    else:
+        return redirect('login')
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-
+#---- User Sign Up ----#
 
 def signup(request):
     if request.method == 'POST':

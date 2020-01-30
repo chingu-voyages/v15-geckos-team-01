@@ -147,12 +147,12 @@
 
           {% for urls in bookmark_list %}
           <div class="flex_row_container">
-            {% if urls.alink and urls.nickname %}
+            {% if urls.alink and urls.nickname and urls.id %}
             <li><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
-             {% if urls.id %}
+
   <a class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
 
-  {% endif %}
+
   </div>
             {% else %}
             <li>{{urls}}</li>

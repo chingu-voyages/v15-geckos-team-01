@@ -258,7 +258,7 @@ def add_Bookmark(request):
         new_URL = request.POST['alink']
         new_nickname = request.POST['nickname']
         # IMPORTANT:  request.POST['text'] will not pass in properly, base10 error
-        # must be translated into a variable, and then passed to the model Goal.
+        # must be translated into a variable, and then passed to the model.
         #print("\n\n text = \n\n", text)
         new_bookmark = Bookmarks(alink=new_URL, nickname=new_nickname, user=user_id)
 
