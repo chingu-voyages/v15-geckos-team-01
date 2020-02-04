@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!--
+   ------------------------------------------------------------------------
+   DEMO PAGE  LOGIN, SIGN UP FOR ACCESS TO SAVE, EDIT, and SUBMIT YOUR DATA
+   ------------------------------------------------------------------------
+   -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CodeTrack</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <!-- Local
+    <link rel="stylesheet" href="style.css" />
+    -->
+
+    <!-- Django -->
+    <link rel=stylesheet href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <div><strong>CodeTrack</strong></div>
+      <div class="menu">
+          <!-- Local
+        <div class="menu_items"><a href="index.html">About</a></div>
+        -->
+
+        <!-- Django -->
+        <div class="menu_items"><a href="/">About</a></div>
+        <div class="menu_items"><a href="#">FAQ</a></div>
+        <div class="menu_items"><a href="#">Contact</a></div>
+        <div class="menu_items"><a href="mytrack.html">MyTrack</a></div>
+        <div class="menu_items"><a href="#">Login</a></div>
+      </div>
+      <button class="btn_one">Sign Up</button>
+    </nav>
+
+    <main class="container">
+      <div class="myTrack">
+        <div class="row">
+          <div class="col-md">
+            <section class="container goals">
+              <form>
+                <h3>What is your long-term goal?</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Goal 1"
+                      aria-label="Goal 1"
+                      aria-describedby="button-addon4"
+                    />
+                    <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-secondary" type="button">
+                        Edit
+                      </button>
+                      <button class="btn btn-outline-secondary" type="button">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <h3>What is your 3-month goal?</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Goal 2"
+                      aria-label="Goal 2"
+                      aria-describedby="button-addon4"
+                    />
+                    <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-secondary" type="button">
+                        Edit
+                      </button>
+                      <button class="btn btn-outline-secondary" type="button">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <h3>What is your 1-month goal?</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Goal 3"
+                      aria-label="Goal 3"
+                      aria-describedby="button-addon4"
+                    />
+                    <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-secondary" type="button">
+                        Edit
+                      </button>
+                      <button class="btn btn-outline-secondary" type="button">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+          <br />
+          <section/section class="col-md">
+          <section class="container links">
+            <div class="card card-body">
+              <form>
+                <h3>Save Important links here:</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Link to a tutorial or blog"
+                      aria-label="Links"
+                      aria-describedby="button-addon4"
+                    />
+                    <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-secondary" type="button">
+                        Edit
+                      </button>
+                      <button class="btn btn-outline-secondary" type="button">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="container links">
+            <div class="card card-body">
+              <form>
+                <h3>Add Tasks To Your To-Do List:</h3>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Add A Task"
+                      aria-label="ToDO"
+                      aria-describedby="button-addon4"
+                    />
+                    <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-secondary" type="button">
+                        Edit
+                      </button>
+                      <button class="btn btn-outline-secondary" type="button">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
