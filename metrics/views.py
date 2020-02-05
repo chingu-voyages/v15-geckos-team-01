@@ -9,36 +9,42 @@ from django.views.decorators.http import require_POST
 
 #------- load the page ----------#
 def load_metrics(request):
-    try:
-        user_id = request.user
+    form1 = GoalONEForm(request.POST)
+    form2 = GoalTWOForm(request.POST)
+    form3 = GoalTHREEForm(request.POST)
+    form4 = Bookmark(request.POST)
+    if request.user.is_authenticated:
+        try:
+            user_id = request.user
 
-        goals_list = Goal.objects.filter(user=user_id)
-        longtermgoal = GoalOne.objects.filter(user=user_id).first()
-        threemonthgoal=GoalTwo.objects.filter(user=user_id).first()
-        shorttermgoal = GoalThree.objects.filter(user=user_id).first()
-        bookmark_list = Bookmarks.objects.filter(user=user_id)
+            goals_list = Goal.objects.filter(user=user_id)
+            longtermgoal = GoalOne.objects.filter(user=user_id).first()
+            threemonthgoal=GoalTwo.objects.filter(user=user_id).first()
+            shorttermgoal = GoalThree.objects.filter(user=user_id).first()
+            bookmark_list = Bookmarks.objects.filter(user=user_id)
 
-        if not goals_list:
-            goals_list = ["no task items currently set.", "Use ADD button to add a to-do."]
-        if longtermgoal == None:
-            longtermgoal = "You have not set a long term goal yet."
-        if threemonthgoal == None:
-            threemonthgoal = "You have not set a three month goal yet."
-        if shorttermgoal == None:
-            shorttermgoal = "You have not set your short term goal yet."
-        if not bookmark_list:
-            bookmark_list = [" save some bookmarks here ", "keep them in one place for easier retrieval!", "nickname your links to make them easier to identify"]
+            if not goals_list:
+                goals_list = ["no task items currently set.", "Use ADD button to add a to-do."]
+            if longtermgoal == None:
+                longtermgoal = "You have not set a long term goal yet."
+            if threemonthgoal == None:
+                threemonthgoal = "You have not set a three month goal yet."
+            if shorttermgoal == None:
+                shorttermgoal = "You have not set your short term goal yet."
+            if not bookmark_list:
+                bookmark_list = [" save some bookmarks here ", "keep them in one place for easier retrieval!", "nickname your links to make them easier to identify"]
 
-        form = GoalForm()
-        form4 = Bookmark()
 
-        user_metrics = {'form': form, 'form4': form4, 'goals_list': goals_list, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal, 'bookmark_list': bookmark_list}
 
-        return render(request, 'metrics/metrics.html', user_metrics)
+            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'form4': form4, 'goals_list': goals_list, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal, 'bookmark_list': bookmark_list}
 
-    except:
-        # This is not a logged in user.
-        return render(request, 'metrics/metrics.html')
+            return render(request, 'metrics/MyTrack.html', user_metrics)
+
+        except:
+            # This is not a logged in user.
+            return render(request, 'metrics/MyTrack_Demo.html')
+    else:
+        return render(request, 'metrics/MyTrack_Demo.html')
 
 # -------- Front-end  Mytrack load -----#
 
@@ -98,6 +104,7 @@ def add_GoalOne(request):
     form1 = GoalONEForm(request.POST)
     form2 = GoalTWOForm(request.POST)
     form3 = GoalTHREEForm(request.POST)
+    form4 = Bookmark(request.POST)
     user_id = request.user
 
     if form1.is_valid():
@@ -113,11 +120,11 @@ def add_GoalOne(request):
             old_goal.text = new_text
 
             old_goal.save()
-            return redirect('myTrack')
+            return redirect('metrics')
         else:
             new_goal = GoalOne(text=new_text, user=user_id)
             new_goal.save()
-            return redirect('myTrack')
+            return redirect('metrics')
     else:
         try:
 
@@ -151,6 +158,7 @@ def add_GoalTwo(request):
     form1 = GoalONEForm(request.POST)
     form2 = GoalTWOForm(request.POST)
     form3 = GoalTHREEForm(request.POST)
+    form4 = Bookmark(request.POST)
     user_id = request.user
 
     if form2.is_valid():
@@ -166,11 +174,11 @@ def add_GoalTwo(request):
             old_goal.text = new_text
 
             old_goal.save()
-            return redirect('myTrack')
+            return redirect('metrics')
         else:
             new_goal = GoalTwo(text=new_text, user=user_id)
             new_goal.save()
-            return redirect('myTrack')
+            return redirect('metrics')
     else:
         try:
             longtermgoal = GoalOne.objects.filter(user=user_id).first()
@@ -186,14 +194,14 @@ def add_GoalTwo(request):
                 shorttermgoal = "No short term goal is set."
 
 
-            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
+            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'form4': form4, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
 
 
-            return render(request, 'metrics/mytrack.html', user_metrics)
+            return render(request, 'metrics', user_metrics)
 
         except:
 
-            return render(request, 'metrics/mytrack.html')
+            return render(request, 'metrics')
 
 
 #---------  Add/edit Goal 3 short term goal -----#
@@ -202,6 +210,7 @@ def add_GoalThree(request):
     form1 = GoalONEForm(request.POST)
     form2 = GoalTWOForm(request.POST)
     form3 = GoalTHREEForm(request.POST)
+    form4 = Bookmark(request.POST)
     user_id = request.user
 
     if form3.is_valid():
@@ -216,11 +225,11 @@ def add_GoalThree(request):
             old_goal.text = new_text
 
             old_goal.save()
-            return redirect('myTrack')
+            return redirect('metrics')
         else:
             new_goal = GoalThree(text=new_text, user=user_id)
             new_goal.save()
-            return redirect('myTrack')
+            return redirect('metrics')
     else:
         try:
             longtermgoal = GoalOne.objects.filter(user=user_id).first()
@@ -236,13 +245,13 @@ def add_GoalThree(request):
                 shorttermgoal = "No short term goal is set."
 
 
-            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
+            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'form4': form4, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
 
 
-            return render(request, 'metrics/mytrack.html', user_metrics)
+            return render(request, 'metrics', user_metrics)
         except:
 
-            return render(request, 'metrics/mytrack.html')
+            return render(request, 'metrics')
 
 #----  Bookmarks --------------#
 

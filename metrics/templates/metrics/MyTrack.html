@@ -36,7 +36,7 @@ user access page.  Set goals, bookmarks, and a to-do list
   </head>
   <body>
     <nav>
-      <div><strong>CodeTrack</strong></div>
+       <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
       <div class="menu">
           <!-- Local
         <div class="menu_items"><a href="index.html">About</a></div>
@@ -46,7 +46,6 @@ user access page.  Set goals, bookmarks, and a to-do list
         <div class="menu_items"><a href="/">About</a></div>
         <div class="menu_items"><a href="#">FAQ</a></div>
         <div class="menu_items"><a href="#">Contact</a></div>
-        <div class="menu_items"><a href="mytrack.html">MyTrack</a></div>
         <!-- this page should not be accessable unless user is logged in and authenticated -->
         <div class="menu_items"><a href="{% url 'logout' %}">Logout</a></div>
       </div>
@@ -57,24 +56,34 @@ user access page.  Set goals, bookmarks, and a to-do list
       <div class="myTrack">
         <div class="row">
           <div class="col-md">
+
+              <!--         GOALS                 -->
+              <!--    Set some goals to focus on -->
+
             <section class="container goals">
 
               <!--  Each goal requires a separate goal <form> from the backend, form tag removed -->
+              <!--
+              <h4 id='longtermgoal'> id required for edit function
+                         {{ longtermgoal }}
+                         </h4>
+              -->
 
                 <h3>What is your long-term goal?</h3>
                 <div class="form-group">
+                     <h4 id='longtermgoal'>
+                         {{ longtermgoal }}
+                         </h4>
 
-                     {{ longtermgoal }}
                      <form action="{% url 'add_GoalOne' %}" method="POST" role="form1">
                             {% csrf_token %}
 
-                         <div class="input-group">
-                             {{ form1.text }}
 
-
-
+                        <div class="input-group">
 
                         <div class="input-group-append">
+                             {{ form1.text }}
+
                             <button type="submit" class="btn btn-outline-secondary" id="add_goal1_btn">Submit</button>
                             <button type="button" class="btn btn-outline-secondary" id="goal1_edit">Edit</button>
                         </div>
@@ -86,7 +95,9 @@ user access page.  Set goals, bookmarks, and a to-do list
 
 
                 <div class="form-group">
+                    <h4 id="threemonthgoal">
                      {{ threemonthgoal }}
+                     </h4>
                     <form action="{% url 'add_GoalTwo' %}" method="POST" role="form2">
                             {% csrf_token %}
                             <div class="input-group">
@@ -101,8 +112,9 @@ user access page.  Set goals, bookmarks, and a to-do list
                         </form>
                 </div>
                 <h3>What is your 1-month goal?</h3>
+                <h4 id="shorttermgoal">
                  {{ shorttermgoal }}
-
+                </h4>
                 <div class="form-group">
                       <form action="{% url 'add_GoalThree' %}" method="POST" role="form3">
                             {% csrf_token %}
@@ -156,9 +168,11 @@ user access page.  Set goals, bookmarks, and a to-do list
               {% for urls in bookmark_list %}
           <div>
             {% if urls.alink and urls.nickname and urls.id %}
-                <li><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
+            <div style="display: flex; flex-direction: row; justify-content: space-between; border: solid 1px silver;">
 
-                <a class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
+                <li style="display: flex; align-self: flex-start;"><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
+
+                <a style=" display: flex; align-self: flex-end;" class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
 
 
                 </div>
@@ -200,10 +214,10 @@ user access page.  Set goals, bookmarks, and a to-do list
                 <!--   display todo list here??        -->
                 <!--   discuss styling thursday?       -->
                 {% for goal in goals_list %}
-                <div>
-                <li>{{ goal }}</li>
+                <div style="display: flex; flex-direction: row; justify-content: space-between; border: solid 1px silver;">
+                <li style="display: flex; align-self: flex-start;">{{ goal }}</li>
                 {% if goal.id %}
-                <a class="delete_link" href="{% url 'deleteGoal' goal.id %}"><i class="far fa-window-close"></i></a>
+                <a style="display: flex; align-self: flex-end;" class="delete_link" href="{% url 'deleteGoal' goal.id %}"><i class="far fa-window-close"></i></a>
 
                 {% endif %}
                 </div>
