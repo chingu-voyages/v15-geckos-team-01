@@ -1,122 +1,122 @@
 <!DOCTYPE html>
 {% load static %}
+
+<!--
+--------------
+user access page.  Set goals, bookmarks, and a to-do list
+-------------
+-->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CodeTrack</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- LOCAL
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <!--  delete/close button icon -->
+      <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+
+    <!-- Local
+    <link rel="stylesheet" href="style.css" />
     -->
-    <!-- DJANGO -->
-      <link rel=stylesheet href="{% static 'css/style.css' %}" />
-       {% if user.is_authenticated %}
+
+    <!-- Django -->
+    <link rel=stylesheet href="{% static 'css/style.css' %}" />
+     {% if user.is_authenticated %}
+
        <script type="text/javascript" src="{% static 'js/edit_button.js' %}"></script>
 
-       {% endif %}
-</head>
-<body>
+     {% endif %}
+  </head>
+  <body>
     <nav>
+       <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+      <div class="menu">
+          <!-- Local
+        <div class="menu_items"><a href="index.html">About</a></div>
+        -->
 
-        <div><a href="/"><strong>CodeTrack</strong></a></div>
-        <div class="menu">
-            <div class="menu_items"><a href="/">About</a></div>
-            <div class="menu_items"><a href="#">FAQ</a></div>
-            <div class="menu_items"><a href="#">Contact</a></div>
-            <div class="menu_items"><a href="#">MyTrack</a></div>
-            <div class="menu_items"><a href="#">Login</a></div>
-        </div>
-        <button class="btn_one">Sign Up</button>
+        <!-- Django -->
+        <div class="menu_items"><a href="/">About</a></div>
+        <div class="menu_items"><a href="#">FAQ</a></div>
+        <div class="menu_items"><a href="#">Contact</a></div>
+        <!-- this page should not be accessable unless user is logged in and authenticated -->
+        <div class="menu_items"><a href="{% url 'logout' %}">Logout</a></div>
+      </div>
+      <button class="btn_one">Sign Up</button>
     </nav>
 
     <main class="container">
-        <section class="container goals">
+      <div class="myTrack">
+        <div class="row">
+          <div class="col-md">
+
+              <!--         GOALS                 -->
+              <!--    Set some goals to focus on -->
+
+            <section class="container goals">
+
+              <!--  Each goal requires a separate goal <form> from the backend, form tag removed -->
+              <!--
+              <h4 id='longtermgoal'> id required for edit function
+                         {{ longtermgoal }}
+                         </h4>
+              -->
 
                 <h3>What is your long-term goal?</h3>
                 <div class="form-group">
-                         {% if user.is_authenticated %}
-                         <h4 id='longtermgoal'>
+                     <h4 id='longtermgoal'>
                          {{ longtermgoal }}
                          </h4>
 
-                        <form action="{% url 'add_GoalOne' %}" method="POST" role="form1">
+                     <form action="{% url 'add_GoalOne' %}" method="POST" role="form1">
                             {% csrf_token %}
-                            <div class="input-group">
-                                {{ form1.text }}
 
 
+                        <div class="input-group">
 
-                              <button type="submit" class="btn btn-outline-secondary" id="add_goal1_btn">Submit</button>
-                              <button type="button" class="btn btn-outline-secondary" id="goal1_edit">Edit</button>
+                        <div class="input-group-append">
+                             {{ form1.text }}
 
-
-                             </div>
-                        </form>
-
-
-
-                        <!-- if user is not logged in, they can not access database-->
-                        {% else %}
-                        <input type="text" class="form-control" placeholder="Non auth user" aria-label="Goal 1" aria-describedby="button-addon4">
-                        <div class="input-group-append" id="button-addon4">
-                        <button class="btn btn-outline-secondary" type="button" id="goal1_edit">Edit</button>
-                        <button class="btn btn-outline-secondary" type="button">Submit</button>
+                            <button type="submit" class="btn btn-outline-secondary" id="add_goal1_btn">Submit</button>
+                            <button type="button" class="btn btn-outline-secondary" id="goal1_edit">Edit</button>
                         </div>
-
+                        </div>
+                     </form>
                     </div>
-                    {% endif %}
-                </div>
-
+                  <!-- removed 2 closing div tags -->
                 <h3>What is your 3-month goal?</h3>
+
+
                 <div class="form-group">
-
-                     {% if user.is_authenticated %}
-                         <h4 id='threemonthgoal'>
-                         {{ threemonthgoal }}
-                         </h4>
-
-                        <form action="{% url 'add_GoalTwo' %}" method="POST" role="form2">
+                    <h4 id="threemonthgoal">
+                     {{ threemonthgoal }}
+                     </h4>
+                    <form action="{% url 'add_GoalTwo' %}" method="POST" role="form2">
                             {% csrf_token %}
                             <div class="input-group">
                                 {{ form2.text }}
 
 
-
+                              <div class="input-group-append">
                               <button type="submit" class="btn btn-outline-secondary" id="add_goal2_btn">Submit</button>
                               <button type="button" class="btn btn-outline-secondary" id="goal2_edit">Edit</button>
-
+                              </div>
                              </div>
                         </form>
-
-
-
-                        <!-- if user is not logged in, they can not access database-->
-                        {% else %}
-                        <div class="input-group">
-
-
-                        <!-- if user is not logged in, they can not access database-->
-
-                        <input type="text" class="form-control" placeholder="Goal 2" aria-label="Goal 2" aria-describedby="button-addon4">
-                        <div class="input-group-append" id="button-addon4">
-                        <button class="btn btn-outline-secondary" type="button">Edit</button>
-                        <button class="btn btn-outline-secondary" type="button" id="goal2_edit">Submit</button>
-                        </div>
-                      {% endif %}
-                    </div>
-
                 </div>
-
                 <h3>What is your 1-month goal?</h3>
+                <h4 id="shorttermgoal">
+                 {{ shorttermgoal }}
+                </h4>
                 <div class="form-group">
-                     {% if user.is_authenticated %}
-                     <h4 id="shorttermgoal">
-                         {{ shorttermgoal }}
-                         </h4>
-
-                        <form action="{% url 'add_GoalThree' %}" method="POST" role="form3">
+                      <form action="{% url 'add_GoalThree' %}" method="POST" role="form3">
                             {% csrf_token %}
                             <div class="input-group">
                                 {{ form3.text }}
@@ -131,23 +131,104 @@
                         </form>
 
 
+                </div>
+            </section>
+          </div>
+          <br />
 
-                        <!-- if user is not logged in, they can not access database-->
-                        {% else %}
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Goal 3" aria-label="Goal 3" aria-describedby="button-addon4">
-                        <div class="input-group-append" id="button-addon4">
-                        <button class="btn btn-outline-secondary" type="button" id="goal3_edit">Edit</button>
-                        <button class="btn btn-outline-secondary" type="button">Submit</button>
-                        </div>
+
+          <!-- Bookmarks -->
+
+          <section/section class="col-md">
+          <section class="container links">
+            <div class="card card-body">
+
+                <h3>Save Important links here:</h3>
+                <div class="form-group">
+                  <!-- Bookmarks Form -->
+                 <form action="{% url 'add_Bookmark' %}" method="POST" role="form4">
+                    {% csrf_token %}
+                    <div class="input_form_column">
+                    {{ form4 }}
+
+                     <div class="input-group-append" id="button-addon4">
+                     <button  class="btn btn-outline-secondary" id="add-btn">Submit</button>
+                     </div>
+
                     </div>
-                    {% endif %}
+                 </form>
+           </div>
+            </div>
+
+            <!--             ??                   -->
+            <!--- display current bookmarks here? -->
+            <!--     discuss styling thursday?    -->
+
+
+              {% for urls in bookmark_list %}
+          <div>
+            {% if urls.alink and urls.nickname and urls.id %}
+            <div style="display: flex; flex-direction: row; justify-content: space-between; border: solid 1px silver;">
+
+                <li style="display: flex; align-self: flex-start;"><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
+
+                <a style=" display: flex; align-self: flex-end;" class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
+
+
+                </div>
+            {% else %}
+            <!-- If user does not have bookmarks stored, put in default bookmarks -->
+              <li>{{urls}}</li>
+              </div>
+            {% endif %}
+            {% endfor %}
+
+          </section>
+
+
+
+          <!--  TODO section -->
+
+          <section class="container links">
+            <div class="card card-body">
+
+              <!--- TODO Form --->
+
+                <h3>Add Tasks To Your To-Do List:</h3>
+                <div class="form-group">
+                <form action="{% url 'addGoal' %}" method="POST" role="form">
+                    {% csrf_token %}
+                    <div class="input_form">
+                    {{ form.text }}
+
+                    <div class="input-group-append" id="button-addon4">
+                    <button id="add-btn">Submit</button>
+                    </div>
+
+                    </div>
+                </form>
                 </div>
 
-        </section>
 
+                <!--             ??                    -->
+                <!--   display todo list here??        -->
+                <!--   discuss styling thursday?       -->
+                {% for goal in goals_list %}
+                <div style="display: flex; flex-direction: row; justify-content: space-between; border: solid 1px silver;">
+                <li style="display: flex; align-self: flex-start;">{{ goal }}</li>
+                {% if goal.id %}
+                <a style="display: flex; align-self: flex-end;" class="delete_link" href="{% url 'deleteGoal' goal.id %}"><i class="far fa-window-close"></i></a>
+
+                {% endif %}
+                </div>
+                {% endfor %}
+                </div>
+
+
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
-
-
-</body>
+  </body>
 </html>
