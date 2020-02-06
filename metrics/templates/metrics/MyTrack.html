@@ -27,7 +27,11 @@ user access page.  Set goals, bookmarks, and a to-do list
     -->
 
     <!-- Django -->
+
     <link rel=stylesheet href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/metrics_home.css' %}">
+
+
      {% if user.is_authenticated %}
 
        <script type="text/javascript" src="{% static 'js/edit_button.js' %}"></script>
@@ -35,21 +39,45 @@ user access page.  Set goals, bookmarks, and a to-do list
      {% endif %}
   </head>
   <body>
-    <nav>
-       <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
-      <div class="menu">
-          <!-- Local
-        <div class="menu_items"><a href="index.html">About</a></div>
-        -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link item-navs" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item-navs" href="{% url 'faq' %}">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item-navs" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item-navs" href="{% url 'metrics' %}">Metrics</a>
+                </li>
+            </ul>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <button class="btn btn-outline-success cust" type="button"><a href="{% url 'logout' %}">Logout</a></button>
 
-        <!-- Django -->
-        <div class="menu_items"><a href="/">About</a></div>
-        <div class="menu_items"><a href="#">FAQ</a></div>
-        <div class="menu_items"><a href="#">Contact</a></div>
-        <!-- this page should not be accessable unless user is logged in and authenticated -->
-        <div class="menu_items"><a href="{% url 'logout' %}">Logout</a></div>
-      </div>
-      <button class="btn_one">Sign Up</button>
+            </form>
+        </div>
+        {% else %}
+        <!-- USER SHOULD NOT BE ON PAGE IF NOT LOGGED IN -->
+        <!-- this should never appear unless something in logic is broken -->
+        <div class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <button class="btn btn-outline-success cust" type="button"><a href="{% url 'login' %}">Login</a></button>
+                <button class="btn btn-outline-success cust" type="button"><a href="{% url 'signup' %}">Sign Up</a></button>
+            </form>
+        </div>
+        {% endif %}
     </nav>
 
     <main class="container">
@@ -84,8 +112,8 @@ user access page.  Set goals, bookmarks, and a to-do list
                         <div class="input-group-append">
                              {{ form1.text }}
 
-                            <button type="submit" class="btn btn-outline-secondary" id="add_goal1_btn">Submit</button>
-                            <button type="button" class="btn btn-outline-secondary" id="goal1_edit">Edit</button>
+                            <button type="submit" class="btn btn-outline-success cust" id="add_goal1_btn">Submit</button>
+                            <button type="button" class="btn btn-outline-success cust" id="goal1_edit">Edit</button>
                         </div>
                         </div>
                      </form>
@@ -105,8 +133,8 @@ user access page.  Set goals, bookmarks, and a to-do list
 
 
                               <div class="input-group-append">
-                              <button type="submit" class="btn btn-outline-secondary" id="add_goal2_btn">Submit</button>
-                              <button type="button" class="btn btn-outline-secondary" id="goal2_edit">Edit</button>
+                              <button type="submit" class="btn btn-outline-success cust" id="add_goal2_btn">Submit</button>
+                              <button type="button" class="btn btn-outline-success cust" id="goal2_edit">Edit</button>
                               </div>
                              </div>
                         </form>
@@ -123,8 +151,8 @@ user access page.  Set goals, bookmarks, and a to-do list
 
 
 
-                              <button type="submit" class="btn btn-outline-secondary" id="add_goal3_btn">Submit</button>
-                              <button type="button" class="btn btn-outline-secondary" id="goal3_edit">Edit</button>
+                              <button type="submit" class="btn btn-outline-success cust" id="add_goal3_btn">Submit</button>
+                              <button type="button" class="btn btn-outline-success cust" id="goal3_edit">Edit</button>
 
 
                              </div>
@@ -155,7 +183,7 @@ user access page.  Set goals, bookmarks, and a to-do list
                     {{ form4 }}
 
                      <div class="input-group-append" id="button-addon4">
-                     <button  class="btn btn-outline-secondary" id="add-btn">Submit</button>
+                     <button  class="btn btn-outline-success cust" id="add-btn">Submit</button>
                      </div>
 
                     </div>
@@ -171,11 +199,11 @@ user access page.  Set goals, bookmarks, and a to-do list
               {% for urls in bookmark_list %}
           <div>
             {% if urls.alink and urls.nickname and urls.id %}
-            <div style="display: flex; flex-direction: row; justify-content: space-between; border: solid 1px silver;">
+            <div class="display_item_outer">
 
-                <li style="display: flex; align-self: flex-start;"><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
+                <li class="display_item_inner_left"><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
 
-                <a style=" display: flex; align-self: flex-end;" class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
+                <a  class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
 
 
                 </div>
@@ -206,7 +234,7 @@ user access page.  Set goals, bookmarks, and a to-do list
                     {{ form.text }}
 
                     <div class="input-group-append" id="button-addon4">
-                    <button id="add-btn">Submit</button>
+                    <button class="btn btn-outline-success cust" id="add-btn">Submit</button>
                     </div>
 
                     </div>
@@ -218,10 +246,10 @@ user access page.  Set goals, bookmarks, and a to-do list
                 <!--   display todo list here??        -->
                 <!--   discuss styling thursday?       -->
                 {% for goal in goals_list %}
-                <div style="display: flex; flex-direction: row; justify-content: space-between; border: solid 1px silver;">
-                <li style="display: flex; align-self: flex-start;">{{ goal }}</li>
+                <div class="display_item_outer">
+                <li class="display_item_inner_left">{{ goal }}</li>
                 {% if goal.id %}
-                <a style="display: flex; align-self: flex-end;" class="delete_link" href="{% url 'deleteGoal' goal.id %}"><i class="far fa-window-close"></i></a>
+                <a class="delete_link" href="{% url 'deleteGoal' goal.id %}"><i class="far fa-window-close"></i></a>
 
                 {% endif %}
                 </div>

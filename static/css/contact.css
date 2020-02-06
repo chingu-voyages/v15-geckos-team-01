@@ -1,0 +1,40 @@
+h3 {
+    text-align: center;
+    margin: 25px 0;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #3F8939;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    background-color: #87ECA8;
+}
+
+.container_two {
+    border-radius: 5px;
+    background-color: #F7F8F9;
+    padding: 20px;
+    margin: 0 150px;
+}
+
+#subject {
+    height: 200px;
+}

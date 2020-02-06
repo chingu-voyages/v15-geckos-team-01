@@ -32,6 +32,7 @@ def load_metrics(request):
     If any of the user_metrics models are empty, user has deleted them all or they have not created any, this
     will send default text in the place of these items so that error are not thrown by empty-NoneType data.
     """
+    form = GoalForm(request.POST)
     form1 = GoalONEForm(request.POST)
     form2 = GoalTWOForm(request.POST)
     form3 = GoalTHREEForm(request.POST)
@@ -63,7 +64,7 @@ def load_metrics(request):
 
 
             # send all the items that django loads into the html in this dictionary *user_metrics
-            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'form4': form4, 'goals_list': goals_list, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal, 'bookmark_list': bookmark_list}
+            user_metrics = {'form': form, 'form1': form1, 'form2': form2, 'form3': form3, 'form4': form4, 'goals_list': goals_list, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal, 'bookmark_list': bookmark_list}
 
             return render(request, 'metrics/MyTrack.html', user_metrics)
 

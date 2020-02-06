@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from GeckoOneHome.forms import SignUpForm
 
 # --- USER change password ---#
+#-- IMPORTANT!  Not in use yet ---#
 from django.contrib.auth import update_session_auth_hash
 
 def password_change(request):
@@ -46,9 +47,16 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+def load_faq(request):
+
+    return render(request, 'GeckoOneHome/faq.html')
 
 
 def load_home(request):
 
     return render(request, 'GeckoOneHome/bootstrap_home.html')
+
+def load_contact(request):
+
+    return render(request, 'GeckoOneHome/contact.html')
 
