@@ -3,7 +3,7 @@ from GeckoOneHome.models import MyUser
 
 
 class Goal(models.Model):
-    text = models.CharField(max_length=40, default="Your goal here>")
+    text = models.CharField(max_length=40, default="TODO list item.")
     complete = models.BooleanField(default=False)
     user = models.ForeignKey(MyUser, on_delete = models.CASCADE, related_name='+')
 
@@ -30,21 +30,21 @@ class Bookmarks(models.Model):
 
 
 class GoalOne(models.Model):
-    text = models.CharField(max_length=40, default="Your goal here>")
+    text = models.CharField(max_length=40, default="Goal #1")
     user = models.ForeignKey(MyUser, on_delete = models.CASCADE,  related_name='+')
 
     def __str__(self):
         return self.text
 
 class GoalTwo(models.Model):
-    text = models.CharField(max_length=40, default="Your goal here>")
+    text = models.CharField(max_length=40, default="Goal #2")
     user = models.ForeignKey(MyUser, on_delete = models.CASCADE,  related_name='+')
 
     def __str__(self):
         return self.text
 
 class GoalThree(models.Model):
-    text = models.CharField(max_length=40, default="Your goal here>")
+    text = models.CharField(max_length=40, default="Goal #3")
     user = models.ForeignKey(MyUser, on_delete = models.CASCADE,  related_name='+')
 
     def __str__(self):

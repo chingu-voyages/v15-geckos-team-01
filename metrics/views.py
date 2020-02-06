@@ -46,7 +46,7 @@ def load_metrics(request):
     else:
         return render(request, 'metrics/MyTrack_Demo.html')
 
-# -------- Front-end  Mytrack load -----#
+# -------- Front-end  Mytrack load  **Not In Use** -----#
 
 def load_myTrack(request):
     #    ADD USER WHEN DB UPDATED   #
@@ -142,13 +142,13 @@ def add_GoalOne(request):
                 shorttermgoal = "No short term goal is set."
 
 
-            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
+            user_metrics = {'form1': form1, 'form2': form2, 'form3': form3, 'form4': form4, 'longtermgoal': longtermgoal, 'threemonthgoal': threemonthgoal, 'shorttermgoal': shorttermgoal}
 
 
-            return render(request, 'metrics/mytrack.html', user_metrics)
+            return render(request, 'metrics', user_metrics)
         except:
 
-            return render(request, 'metrics/mytrack.html')
+            return render(request, 'metrics')
 
 
 #--------------  Add/Edit GoalTwo ----------------#
