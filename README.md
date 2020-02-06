@@ -3,6 +3,22 @@
 ## Overview
 Level up your learning with shared coding resources, tips, and accountability partners.
 ## Features
+Once a user is logged in, they can save, edit and delete from:
+
+### Set some goals
++ long term goal, 
++ a three month goal,
++ a short term, one month goal.
+
+### A To-Do list
+Save a list of items you wish to complete, 
+add to the list, and delete from the list when you're done
+
+### Bookmarks
++ save your favorite learning resource here
++ give it a more meaningful or easy to remember nickname
+
+
 ## Tech used
 * HTML5
 * CSS3
