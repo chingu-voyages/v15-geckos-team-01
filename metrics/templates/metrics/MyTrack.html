@@ -188,15 +188,7 @@ user access page.  Set goals, bookmarks, and a to-do list
 
                     </div>
                  </form>
-           </div>
-            </div>
-
-            <!--             ??                   -->
-            <!--- display current bookmarks here? -->
-            <!--     discuss styling thursday?    -->
-
-
-              {% for urls in bookmark_list %}
+                    {% for urls in bookmark_list %}
           <div>
             {% if urls.alink and urls.nickname and urls.id %}
             <div class="display_item_outer">
@@ -213,6 +205,11 @@ user access page.  Set goals, bookmarks, and a to-do list
               </div>
             {% endif %}
             {% endfor %}
+           </div>
+            </div>
+
+
+
 
           </section>
 
