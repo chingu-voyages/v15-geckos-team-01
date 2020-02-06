@@ -42,14 +42,14 @@ class GoalTest(TestCase):
     def setUp(self):
         test_user = MyUser.objects.create_user(email='foobar@aol.com', password='12345abc')
         new_user = MyUser.objects.get(email='foobar@aol.com')
-        truegoal = Goal(text="make a true goal", complete=True, user=new_user)
+        truegoal = Goal(text="make a true todo", complete=True, user=new_user)
         truegoal.save()
-        falsegoal = Goal(text="make a default false goal", user=new_user)
+        falsegoal = Goal(text="make a default false todo", user=new_user)
         falsegoal.save()
 
     def test_newgoal(self):
         try:
-            newgoal = Goal(text="make a goal", user="nonExistantUser") #expect fail
+            newgoal = Goal(text="make a todo", user="nonExistantUser") #expect fail
         except:
             newgoal = "try block failed"
 
@@ -58,12 +58,18 @@ class GoalTest(TestCase):
     def test_truegoal(self):
         new_user = MyUser.objects.get(email='foobar@aol.com')
         todo = Goal.objects.filter(user = new_user)
-        #first_todo = todo[0].text
-        first_todo = todo.first().text
-        self.assertEqual(first_todo, "make a true goal")
+        first_todo = todo[0].text
+        #first_todo = todo.first().text
+        self.assertEqual(first_todo, "make a true todo")
         first_complete = todo[0].complete
         self.assertEqual(first_complete, True)
+
+    def test_falsegoal(self):
+        new_user = MyUser.objects.get(email='foobar@aol.com')
+        todo = Goal.objects.filter(user = new_user)
         second_todo = todo[1].complete
+        second_todo_text = todo[1].text
         self.assertEqual(second_todo, False)
+        self.assertEqual(second_todo_text, 'make a default false todo')
 
 
