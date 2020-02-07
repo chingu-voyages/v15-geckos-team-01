@@ -133,6 +133,9 @@ def deleteGoal(request, goal_id):
     Goal.objects.get(pk=goal_id).delete()
     return redirect('metrics')
 
+def editToDo(request, todo_id):
+    pass
+
 #------------ Add and Delete singular Goals ---------#
 """
 INFO on singular goals:
@@ -267,6 +270,9 @@ def add_Bookmark(request):
 def delete_Bookmark(request, url_id):
     Bookmarks.objects.get(pk=url_id).delete()
     return redirect('metrics')
+
+def edit_Bookmark(request, bookmark_id):
+    pass
 
 
 

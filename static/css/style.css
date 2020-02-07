@@ -32,6 +32,44 @@ img {
     object-fit: contain;
 }
 
+/* mobile */
+@media all and (max-width: 799px) and (min-width: 220px) {
+    nav {
+        padding: 0;
+    }
+
+}
+
+/*  added logo items for nav home/CodeTrack decoration */
+
+.logo-one {
+    color: #3F8939;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.logo-two {
+    color: #87ECA8;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* ------------- end logos -----------*/
+
+/*  HAMBURGER */
+
+.hamburger {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: auto;
+    color: #3F8939;
+}
+
+
+
+/*  --   end hamburger -- */
+
 .btn_one {
     font-size: .8em;
 }

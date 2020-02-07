@@ -30,8 +30,8 @@
 
   </head>
   <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand logo" href="#"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,25 +50,21 @@
                 <li class="nav-item">
                     <a class="nav-link item-navs" href="{% url 'metrics' %}">Metrics</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link item-navs" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link item-navs" href="{% url 'signup' %}">Sign Up</a>
+                </li>
+                <li>
+                    <a class="nav-link item-navs" href="{% url 'signup' %}">Login</a>
+
+                </li>
+                {% endif %}
             </ul>
         </div>
-        {% if user.is_authenticated %}
-        <!-- USER has to be logged in to see this page.
-             if the logout appears, something is broken in logic -->
-        <div class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <button class="btn btn-outline-success cust" type="button"><a href="{% url 'logout' %}">Logout</a></button>
-
-            </form>
-        </div>
-        {% else %}
-        <div class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <button class="btn btn-outline-success cust" type="button"><a href="{% url 'login' %}">Login</a></button>
-                <button class="btn btn-outline-success cust" type="button"><a href="{% url 'signup' %}">Sign Up</a></button>
-            </form>
-        </div>
-        {% endif %}
     </nav>
     <div class="spacer">
     <h3> Demo page, please login or signup to use these features.</h3>

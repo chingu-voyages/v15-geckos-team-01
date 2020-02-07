@@ -4,6 +4,33 @@ body {
     font-size: 16px;
 }
 
+/* mobile
+*   Add changes to items for mobile view in here
+*/
+@media all and (max-width: 799px) and (min-width: 220px) {
+    nav {
+        padding: 0;
+    }
+}
+
+/*  HAMBURGER */
+
+.hamburger {
+
+    width: 5ch;
+    padding: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: auto;
+    color: #3F8939;
+    border: 1px solid #87ECA8;
+}
+/*  --   end hamburger -- */
+
+
+
 .btn-outline-success {
     margin-right: 5px;
 }
