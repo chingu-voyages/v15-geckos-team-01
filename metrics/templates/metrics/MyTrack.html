@@ -32,6 +32,11 @@ user access page.  Set goals, bookmarks, and a to-do list
     <link rel="stylesheet" href="{% static 'css/metrics_home.css' %}">
 
 
+      <!-- Javascript -->
+
+
+
+
      {% if user.is_authenticated %}
 
        <script type="text/javascript" src="{% static 'js/edit_button.js' %}"></script>
@@ -40,13 +45,13 @@ user access page.  Set goals, bookmarks, and a to-do list
   </head>
   <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand logo" href="#"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+        <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> -->
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="links_list">
                 <li class="nav-item">
                     <a class="nav-link item-navs" href="#">About</a>
                 </li>
@@ -68,12 +73,13 @@ user access page.  Set goals, bookmarks, and a to-do list
                     <a class="nav-link item-navs" href="{% url 'signup' %}">Sign Up</a>
                 </li>
                 <li>
-                    <a class="nav-link item-navs" href="{% url 'signup' %}">Login</a>
+                    <a class="nav-link item-navs" href="{% url 'login' %}">Login</a>
 
                 </li>
                 {% endif %}
             </ul>
         </div>
+         <div class="hamburger" id="hamburger_icon" value="ON"><i class="fas fa-bars"></i></div>
     </nav>
 
     <main class="container">
@@ -104,17 +110,16 @@ user access page.  Set goals, bookmarks, and a to-do list
 
 
                         <div class="input-group">
-
-                        <div class="input-group-append">
                              {{ form1.text }}
 
+
+                          <div class="input-group-append">
                             <button type="submit" class="btn btn-outline-success cust" id="add_goal1_btn">Submit</button>
                             <button type="button" class="btn btn-outline-success cust" id="goal1_edit">Edit</button>
                         </div>
                         </div>
                      </form>
-                    </div>
-                  <!-- removed 2 closing div tags -->
+                  </div>
                 <h3>What is your 3-month goal?</h3>
 
 

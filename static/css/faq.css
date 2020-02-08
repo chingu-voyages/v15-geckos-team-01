@@ -2,11 +2,24 @@
     padding: 25px 100px 100px 100px;
 }
 
-/* mobile */
-@media all and (max-width: 799px) and (min-width: 220px) {
-    .faq {
-        padding: 0;
-    }
+
+
+
+/*  HAMBURGER */
+
+.hamburger {
+    display: none;
+    width: 5ch;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: auto;
+    color: #3F8939;
+    border: 1px solid #87ECA8;
+}
+/*  --   end hamburger -- */
+
 
 h1 {
     text-align: center;
@@ -15,4 +28,30 @@ h1 {
 h5 {
     color: #3F8939;
     padding: 25px 0 10px 0;
+}
+
+/* mobile */
+@media all and (max-width: 799px) and (min-width: 220px) {
+    .faq {
+        padding: 0;
+    }
+     nav {
+        padding: 0;
+    }
+
+    .container {
+        display: block;
+    }
+
+    #links_list {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .image {
+        width: 100vw;
+    }
 }

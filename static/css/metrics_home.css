@@ -101,3 +101,42 @@ li {
     font-weight: bold;
     font-size: 1.2em;
 }
+
+/*  HAMBURGER */
+
+.hamburger {
+    display: none;
+    width: 5ch;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: auto;
+    color: #3F8939;
+    border: 1px solid #87ECA8;
+}
+/*  --   end hamburger -- */
+
+/* mobile
+*   Add changes to items for mobile view in here
+*/
+
+@media all and (max-width: 799px) and (min-width: 220px) {
+
+    nav {
+        padding: 0;
+    }
+
+    .container {
+        display: block;
+    }
+    #links_list {
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .image{
+        width: 100vw;
+    }
+}

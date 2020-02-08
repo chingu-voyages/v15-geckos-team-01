@@ -32,13 +32,7 @@ img {
     object-fit: contain;
 }
 
-/* mobile */
-@media all and (max-width: 799px) and (min-width: 220px) {
-    nav {
-        padding: 0;
-    }
 
-}
 
 /*  added logo items for nav home/CodeTrack decoration */
 
@@ -56,19 +50,24 @@ img {
 
 /* ------------- end logos -----------*/
 
+
 /*  HAMBURGER */
 
 .hamburger {
-    display: flex;
+    display: none;
+    width: 5ch;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
     flex-direction: row;
-    justify-content: flex-end;
     margin-left: auto;
     color: #3F8939;
+    border: 1px solid #87ECA8;
 }
-
-
-
 /*  --   end hamburger -- */
+
+
+
 
 .btn_one {
     font-size: .8em;
@@ -131,4 +130,28 @@ nav {
     padding: 10px;
     width: 40vw;
     height: min-content;
+}
+
+/* mobile
+*   Add changes to items for mobile view in here
+*/
+
+@media all and (max-width: 799px) and (min-width: 220px) {
+
+    nav {
+        padding: 0;
+    }
+
+    .container {
+        display: block;
+    }
+    #links_list {
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .image{
+        width: 100vw;
+    }
 }

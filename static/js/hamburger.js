@@ -3,8 +3,8 @@
 let nav_div;
 let hamburg;
 
-
-function set_DOM(){
+//console.log("hamburger javascript file loaded.")
+function set_BURGER_DOM(){
     nav_div = document.getElementById("links_list")
     hamburg = document.getElementById("hamburger_icon")
 }
@@ -18,6 +18,7 @@ function hide(element){
 }
 
 function toggle_burger(){
+    //console.log("toggling burger")
     current = hamburg.getAttribute("value")
     if(current == "ON"){
         hamburg.setAttribute("value", "OFF")
@@ -33,12 +34,15 @@ function toggle_burger(){
 }
 
 
-function set_listener(){
+function set_BURGER_listener(){
     hamburg.addEventListener('click', toggle_burger)
 }
 
-
 window.onload = function(){
-    set_DOM()
-    set_listener()
+    set_BURGER_DOM()
+    set_BURGER_listener()
+
 }
+
+
+

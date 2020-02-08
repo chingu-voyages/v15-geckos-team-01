@@ -16,6 +16,49 @@ let goal1_btn;
 let goal2_btn;
 let goal3_btn;
 
+// JS code for hamburger icon
+
+let nav_div;
+let hamburg;
+
+
+function set_BURGER_DOM(){
+    //console.log("setting burgers")
+    nav_div = document.getElementById("links_list")
+    hamburg = document.getElementById("hamburger_icon")
+}
+
+function show(element){
+    element.style.display = 'flex';
+}
+
+function hide(element){
+    element.style.display = 'none';
+}
+
+function toggle_burger(){
+    //console.log("toggling burger")
+    current = hamburg.getAttribute("value")
+    if(current == "ON"){
+        hamburg.setAttribute("value", "OFF")
+
+        show(nav_div)
+    }
+    else{
+        hamburg.setAttribute("value", "ON")
+
+        hide(nav_div)
+    }
+
+}
+
+
+function set_BURGER_listener(){
+    hamburg.addEventListener('click', toggle_burger)
+}
+
+
+
 
 function set_DOM(){
     EDIT_one = document.getElementById('goal_1_input')
@@ -114,5 +157,7 @@ function edit_three(){
 window.onload = function(){
     set_DOM();
     addListeners();
+    set_BURGER_DOM();
+    set_BURGER_listener();
 
 }

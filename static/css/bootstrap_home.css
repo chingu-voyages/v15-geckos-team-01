@@ -4,22 +4,14 @@ body {
     font-size: 16px;
 }
 
-/* mobile
-*   Add changes to items for mobile view in here
-*/
-@media all and (max-width: 799px) and (min-width: 220px) {
-    nav {
-        padding: 0;
-    }
-}
+
 
 /*  HAMBURGER */
 
 .hamburger {
-
+    display: none;
     width: 5ch;
     padding: 10px;
-    display: flex;
     align-content: center;
     justify-content: center;
     flex-direction: row;
@@ -72,6 +64,7 @@ h4 {
     font-weight: 400;
 }
 
+/*  changing width from 500px to 100vw to override mobile overflow */
 .image {
     margin: 40px 0 0 0;
     width: 500px;
@@ -91,4 +84,28 @@ h4 {
     color: #87ECA8;
     font-weight: bold;
     font-size: 1.2em;
+}
+
+/* mobile
+*   Add changes to items for mobile view in here
+*/
+
+@media all and (max-width: 799px) and (min-width: 220px) {
+
+    nav {
+        padding: 0;
+    }
+
+    .container {
+        display: block;
+    }
+    #links_list {
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .image{
+        width: 100vw;
+    }
 }
