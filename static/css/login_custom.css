@@ -37,10 +37,32 @@ main {
     border: 20px solid transparent;
     background: white;
 }
+.image {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
 
 h1{
     width: 100vw;
     text-align: center;
+}
+
+.image h2 {
+    z-index: 3;
+    position: relative;
+    top: 50%;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 4px black;
+}
+
+.image img{
+    z-index: 1;
+    position: absolute;
 }
 .todo_box {
     width: auto;
