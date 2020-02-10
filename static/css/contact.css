@@ -38,3 +38,31 @@ input[type=submit]:hover {
 #subject {
     height: 200px;
 }
+
+/* mobile
+*   Add changes to items for mobile view in here
+*/
+
+@media all and (max-width: 799px) and (min-width: 220px) {
+
+    nav {
+        padding: 0;
+    }
+
+    .container {
+        display: block;
+    }
+    #links_list {
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .image{
+        width: 100vw;
+    }
+    .container_two {
+        margin: 0;
+    }
+
+}

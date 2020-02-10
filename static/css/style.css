@@ -136,6 +136,7 @@ nav {
 *   Add changes to items for mobile view in here
 */
 
+
 @media all and (max-width: 799px) and (min-width: 220px) {
 
     nav {
@@ -155,3 +156,10 @@ nav {
         width: 100vw;
     }
 }
+
+@media all and (width > 799px) {
+    #links_list {
+        display: flex;
+    }
+}
+

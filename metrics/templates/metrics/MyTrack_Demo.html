@@ -20,6 +20,9 @@
       crossorigin="anonymous"
     />
 
+     <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+
     <!-- Local
     <link rel="stylesheet" href="style.css" />
     -->
@@ -27,6 +30,10 @@
     <!-- Django -->
     <link rel=stylesheet href="{% static 'css/style.css' %}" />
       <link rel="stylesheet" href="{% static 'css/metrics_home.css' %}">
+
+       <!-- Javascript -->
+    <script type="text/javascript" src="{% static 'js/hamburger.js' %}"></script>
+
 
   </head>
   <body>
@@ -37,7 +44,7 @@
             <span class="navbar-toggler-icon"></span>
         </button> -->
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="links_list">
                 <li class="nav-item">
                     <a class="nav-link item-navs" href="#">About</a>
                 </li>
@@ -65,6 +72,7 @@
                 {% endif %}
             </ul>
         </div>
+         <div class="hamburger" id="hamburger_icon" value="ON"><i class="fas fa-bars"></i></div>
     </nav>
     <div class="spacer">
     <h3> Demo</h3>

@@ -12,15 +12,17 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+     <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+
     <!-- DJANGO LINKS -->
 
-
-
-
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap_home.css' %}">
+
      <link rel=stylesheet href="{% static 'css/login_custom.css' %}"/>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="{% static 'js/hamburger.js' %}"></script>
 
 
     <title>The Code Track</title>
@@ -35,7 +37,7 @@
             <span class="navbar-toggler-icon"></span>
         </button> -->
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="links_list">
                 <li class="nav-item">
                     <a class="nav-link item-navs" href="#">About</a>
                 </li>
@@ -50,10 +52,11 @@
                 </li>
             </ul>
         </div>
+         <div class="hamburger" id="hamburger_icon" value="ON"><i class="fas fa-bars"></i></div>
         </nav>
 
 
-<div class="image"> <img src="{% static 'images/laptop_sm.jpg' %}"><h2>Your journey starts here</h2></div class="image">
+<div class="image"> <img src="{% static 'images/laptop_sm.jpg' %}"><h2>Your journey starts here</h2></div>
 
 
 <div class="flex_column">

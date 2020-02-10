@@ -101,6 +101,7 @@ h4 {
     }
     #links_list {
         display: none;
+        flex-direction: column;
     }
     .hamburger{
         display: flex;

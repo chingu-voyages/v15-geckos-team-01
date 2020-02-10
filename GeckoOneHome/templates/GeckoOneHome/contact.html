@@ -20,17 +20,23 @@
       <link rel="stylesheet" href="{% static 'css/bootstrap_home.css' %}">
       <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 
+     <!-- font awesome kit -->
+    <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+
+     <!-- Javascript -->
+    <script type="text/javascript" src="{% static 'js/hamburger.js' %}"></script>
+
     <title>CodeTrack</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand logo" href="#"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+        <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> -->
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="links_list">
                 <li class="nav-item">
                     <a class="nav-link item-navs" href="#">About</a>
                 </li>
@@ -52,11 +58,12 @@
                     <a class="nav-link item-navs" href="{% url 'signup' %}">Sign Up</a>
                 </li>
                 <li>
-                    <a class="nav-link item-navs" href="{% url 'signup' %}">Login</a>
+                    <a class="nav-link item-navs" href="{% url 'login' %}">Login</a>
 
                 </li>
                 {% endif %}
             </ul>
+            <div class="hamburger" id="hamburger_icon" value="ON"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
         <h1>Contact Form</h1>
