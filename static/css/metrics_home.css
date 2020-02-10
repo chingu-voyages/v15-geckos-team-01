@@ -4,6 +4,17 @@ li {
     margin: 5px;
     border: solid 5px #F7F8F9;
 }
+.goal_emphasis {
+    color: #72b12f;
+    text-shadow: -2px 1px 6px #e9e9f9;
+}
+
+.todo_emphasis {
+    color: darkolivegreen;
+    text-shadow: -2px 1px 6px #e9e9f9;
+
+}
+
 
 .errorlist li {
     font-size: 12px;
