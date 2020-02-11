@@ -1,3 +1,8 @@
+/* Used by:
+   *metrics/MyTrack & Demo
+
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +37,37 @@ img {
     object-fit: contain;
 }
 
+footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #87eca8;
+    border-bottom: 3px solid #87eca8;
+}
+
+
+h1 {
+    padding: 10px 0;
+    font-weight: normal;
+}
+
+h2 {
+    padding: 10px 0 30px 0;
+    font-weight: normal;
+}
+
+nav {
+    background-color: #F3F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
 
 
 /*  added logo items for nav home/CodeTrack decoration */
@@ -84,20 +120,7 @@ img {
     padding: 15px 25px;
 }
 
-footer {
-    background-color: #87ECA8;
-    height: 10px;
-}
 
-h1 {
-    padding: 10px 0;
-    font-weight: normal;
-}
-
-h2 {
-    padding: 10px 0 30px 0;
-    font-weight: normal;
-}
 
 .main {
     display: flex;
@@ -117,13 +140,7 @@ h2 {
     padding: 0 300px;
 }
 
-nav {
-    background-color: #F3F2F2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-}
+
 
 .temporary {
     font-size: 2em;
