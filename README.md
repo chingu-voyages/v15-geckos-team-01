@@ -59,8 +59,10 @@ sqlparse==0.3.0
 
 
 ### created apps
-* metrics: v15-geckos-team-01/metrics
-** User models and forms for To-Do list, Bookmarks, and Goal setting are kept here.
+#### metrics: v15-geckos-team-01/metrics
 
-* GeckoOneHome: v15-geckos-team-01/GeckoOneHome
-** User login, sign up, creation and registration models and forms live here.
+User models and forms for To-Do list, Bookmarks, and Goal setting are kept here.
+
+#### GeckoOneHome: v15-geckos-team-01/GeckoOneHome
+
+User login, sign up, creation and registration models and forms live here.
