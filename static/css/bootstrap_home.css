@@ -1,6 +1,11 @@
 /* Used by:
    * GeckoOneHome/bootstrap_home
 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: avenir;
@@ -8,42 +13,11 @@ body {
     font-size: 16px;
 }
 
-footer {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: black;
-    background-color: #f8f9fa;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 3px solid #87eca8;
-    border-bottom: 3px solid #87eca8;
+
+
+a {
+    color: inherit;
 }
-
-.sock {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-/*  HAMBURGER */
-
-.hamburger {
-    display: none;
-    width: 5ch;
-    padding: 10px;
-    align-content: center;
-    justify-content: center;
-    flex-direction: row;
-    margin-left: auto;
-    color: #3F8939;
-    border: 1px solid #87ECA8;
-}
-/*  --   end hamburger -- */
-
 
 
 .btn-outline-success {
@@ -93,9 +67,6 @@ h4 {
     width: 500px;
 }
 
-.item-navs {
-    margin: 0 15px;
-}
 
 .logo-one {
     color: #3F8939;
@@ -109,30 +80,74 @@ h4 {
     font-size: 1.2em;
 }
 
+/* NAV items from about.css */
+
+nav li{
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.btn {
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #3F8939;
+}
+
+.btn-success:hover {
+    background-color: #87ECA8;
+}
+
+.btn-block {
+    padding: 10px 100px;
+    margin-bottom: 100px;
+}
+
+button:hover {
+    background-color: #999999;
+}
+
+.card-body {
+    background-color: #87ECA8;
+}
+
+.card-title, .card-text {
+    text-align: center;
+}
+
+footer {
+    background-color: #87ECA8;
+    height: 100px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+
+.team {
+    text-decoration: none;
+}
+
+
+
 /* mobile
 *   Add changes to items for mobile view in here
 */
 
 @media all and (max-width: 799px) and (min-width: 220px) {
 
-    nav {
-        padding: 0;
-    }
 
-    footer {
-        flex-direction: column;
-    }
+
 
     .container {
         display: block;
     }
-    #links_list {
-        display: none;
-        flex-direction: column;
-    }
-    .hamburger{
-        display: flex;
-    }
+
     .image{
         width: 100vw;
     }

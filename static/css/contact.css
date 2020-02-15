@@ -39,6 +39,46 @@ input[type=submit]:hover {
     height: 200px;
 }
 
+
+
+/* NAV items from about.css */
+
+
+.btn {
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #3F8939;
+}
+
+.btn-success:hover {
+    background-color: #87ECA8;
+}
+
+.btn-block {
+    padding: 10px 100px;
+    margin-bottom: 100px;
+}
+
+button:hover {
+    background-color: #999999;
+}
+
+.card-body {
+    background-color: #87ECA8;
+}
+
+.card-title, .card-text {
+    text-align: center;
+}
+
+footer {
+    background-color: #87ECA8;
+    height: 100px;
+    padding: 40px;
+    text-align: center;
+}
 /* mobile
 *   Add changes to items for mobile view in here
 */

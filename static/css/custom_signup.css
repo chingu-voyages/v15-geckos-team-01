@@ -2,6 +2,10 @@ body {
     padding: 10px;
 }
 
+li {
+    list-style: none;
+}
+
 .flex_column {
     margin-left: 10vw;
 }

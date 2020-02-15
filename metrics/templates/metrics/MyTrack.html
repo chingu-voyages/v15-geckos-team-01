@@ -11,6 +11,10 @@ user access page.  Set goals, bookmarks, and a to-do list
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!--favicon-->
+    <link rel="shortcut icon" type="shortcut icon" href="{% static 'images/CT_favicon.png' %}" />
+
     <title>CodeTrack</title>
     <link
       rel="stylesheet"
@@ -19,8 +23,10 @@ user access page.  Set goals, bookmarks, and a to-do list
       crossorigin="anonymous"
     />
 
-    <!--  delete/close button icon -->
-      <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
+
+
 
     <!-- Local
     <link rel="stylesheet" href="style.css" />
@@ -45,41 +51,37 @@ user access page.  Set goals, bookmarks, and a to-do list
   </head>
   <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <div class="container">
+            <a class="navbar-brand" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav" id="links_list">
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'faq' %}">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'contact' %}">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'metrics' %}">Metrics</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'signup' %}">Sign Up</a>
-                </li>
-                <li>
-                    <a class="nav-link item-navs" href="{% url 'login' %}">Login</a>
-
-                </li>
-                {% endif %}
-            </ul>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'metrics' %}">Metrics</a>
+                    </li>
+                </ul>
+                <div>
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
+                    {% else %}
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'login' %}">Login</a></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'signup' %}">Sign Up</a></button>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-         <div class="hamburger" id="hamburger_icon" value="ON"><i class="fas fa-bars"></i></div>
     </nav>
 
     <main class="container">
@@ -101,7 +103,7 @@ user access page.  Set goals, bookmarks, and a to-do list
 
                 <h3>What is your long-term goal?</h3>
                 <div class="form-group">
-                     <h4 id='longtermgoal'>
+                     <h4 class="goal_emphasis" id='longtermgoal'>
                          {{ longtermgoal }}
                          </h4>
 
@@ -124,7 +126,7 @@ user access page.  Set goals, bookmarks, and a to-do list
 
 
                 <div class="form-group">
-                    <h4 id="threemonthgoal">
+                    <h4  class="goal_emphasis" id="threemonthgoal">
                      {{ threemonthgoal }}
                      </h4>
                     <form action="{% url 'add_GoalTwo' %}" method="POST" role="form2">
@@ -141,7 +143,7 @@ user access page.  Set goals, bookmarks, and a to-do list
                         </form>
                 </div>
                 <h3>What is your 1-month goal?</h3>
-                <h4 id="shorttermgoal">
+                <h4  class="goal_emphasis" id="shorttermgoal">
                  {{ shorttermgoal }}
                 </h4>
                 <div class="form-group">
@@ -194,10 +196,11 @@ user access page.  Set goals, bookmarks, and a to-do list
             {% if urls.alink and urls.nickname and urls.id %}
             <div class="display_item_outer">
 
-                <li class="display_item_inner_left"><a href={{ urls.alink }}>{{urls.nickname}}</li></a>
-
-                <a  class="delete_link" href="{% url 'delete_Bookmark' urls.id %}"><i class="far fa-window-close"></i></a>
-
+                <li class="display_item_inner_left"><a class="bookmarks_link" href={{ urls.alink }}>{{urls.nickname}}</a></li>
+                <span>
+                <button type="button" class="btn btn-outline-success cust" id="delete_link"><a  class="delete_link" href="{% url 'delete_Bookmark' urls.id %}">Delete</a></button>
+                <button type="button" class="btn btn-outline-success cust"><a href="{% url 'edit_bookmark' urls.id %}">Edit</a></button>
+                </span>
 
                 </div>
             {% else %}
@@ -240,14 +243,16 @@ user access page.  Set goals, bookmarks, and a to-do list
                 </div>
 
 
-                <!--             ??                    -->
-                <!--   display todo list here??        -->
-                <!--   discuss styling thursday?       -->
+
                 {% for goal in goals_list %}
                 <div class="display_item_outer">
-                <li class="display_item_inner_left">{{ goal }}</li>
+                <li class="display_item_inner_left" id="todo_list_item">{{ goal }}</li>
                 {% if goal.id %}
-                <a class="delete_link" href="{% url 'deleteGoal' goal.id %}"><i class="far fa-window-close"></i></a>
+                <span>
+                <button type="button" class="btn btn-outline-success cust" id="delete_link"><a  class="delete_link" href="{% url 'deleteGoal' goal.id %}">Delete</a></button>
+                <button type="button" class="btn btn-outline-success cust">Edit</button>
+                </span>
+
 
                 {% endif %}
                 </div>
@@ -260,22 +265,19 @@ user access page.  Set goals, bookmarks, and a to-do list
         </div>
       </div>
     </main>
+    <footer>
+        <p>Built by <a href="#" class="team">The CodeTrack Team</a> 🔥</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 
-  <footer>
-      <h4>Creators:</h4>
-      <section>
-          <span class="logo-one">Jordan</span>: jphoenix24@gmail.com
-      </section>
-      <section>
-          <span class="logo-one">David</span>: david.gilmore.innis@gmail.com
-      </section>
-      <section>
-          <span class="logo-one">Sophia</span>: sophiali124@gmail.com
-      </section>
-      <section>
-          <span class="logo-one">Nellie</span>: nelliesnoodles42@gmail.com
-      </section>
-  </footer>
 
 </html>

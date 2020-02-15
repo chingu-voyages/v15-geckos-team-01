@@ -10,6 +10,7 @@ urlpatterns = [
     path('faq', views.load_faq, name='faq'),
     path('contact', views.load_contact, name='contact'),
     path('', include('metrics.urls'), name='metrics'),
+    path('about', views.load_about, name="about"),
 ]
 
 #path('change-password/', auth_views.PasswordChangeView.as_view(template_name='change-password.html'), name='change-password'),

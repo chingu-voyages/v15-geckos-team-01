@@ -60,3 +60,6 @@ def load_contact(request):
 
     return render(request, 'GeckoOneHome/contact.html')
 
+def load_about(request):
+    return render(request, 'GeckoOneHome/about.html')
+

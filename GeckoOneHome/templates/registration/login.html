@@ -7,22 +7,24 @@
     <meta charset="utf-8" />
     <!--  viewport for mobile users -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--favicon-->
+    <link rel="shortcut icon" type="shortcut icon" href="{% static 'images/CT_favicon.png' %}" />
+
     <!-- links to our css(optional) and javascript file-->
     <!-- Bootstrap -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-     <!-- font awesome kit -->
-    <script src="https://kit.fontawesome.com/b570a31fd0.js" crossorigin="anonymous"></script>
+
+
 
     <!-- DJANGO LINKS -->
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 
      <link rel=stylesheet href="{% static 'css/login_custom.css' %}"/>
 
-    <!-- Javascript -->
-    <script type="text/javascript" src="{% static 'js/hamburger.js' %}"></script>
 
 
     <title>The Code Track</title>
@@ -31,42 +33,68 @@
 
 <body style="background-repeat: no-repeat;">
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand logo" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <div class="container">
+            <a class="navbar-brand" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav" id="links_list">
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'faq' %}">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'contact' %}">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link item-navs" href="{% url 'metrics' %}">Metrics</a>
-                </li>
-            </ul>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'metrics' %}">Metrics</a>
+                    </li>
+                </ul>
+                <div>
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
+                    {% else %}
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'login' %}">Login</a></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'signup' %}">Sign Up</a></button>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-         <div class="hamburger" id="hamburger_icon" value="ON"><i class="fas fa-bars"></i></div>
-        </nav>
+    </nav>
 
 
-<div class="image"> <img src="{% static 'images/laptop_sm.jpg' %}"><h2>Your journey starts here</h2></div>
 
 
+
+<main>
 <div class="flex_column">
+
 <h2>Login</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Login</button>
+  <h2>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+  </h2>
 </form>
 </div>
+</main>
+  <footer>
+        <p>Built by <a href="#" class="team">The CodeTrack Team</a> 🔥</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 </html>

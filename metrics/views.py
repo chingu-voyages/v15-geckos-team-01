@@ -271,8 +271,38 @@ def delete_Bookmark(request, url_id):
     Bookmarks.objects.get(pk=url_id).delete()
     return redirect('metrics')
 
-def edit_Bookmark(request, bookmark_id):
-    pass
+
+
+def edit_bookmark(request, url_id):
+    item = Bookmarks.objects.get(pk=url_id)
+    form = Bookmark(request.POST)
+    old_url = item.alink
+    old_nickname = item.nickname
+
+
+    return render(request, 'metrics/edit_bookmarks.html', {'form': form, 'old_url': old_url, 'old_nickname': old_nickname, 'item': item})
+
+
+@require_POST
+def change_bookmark(request, url_id):
+    item = Bookmarks.objects.get(pk=url_id)
+    form = Bookmark(request.POST)
+    old_url = item.alink
+    old_nickname = item.nickname
+    if form.is_valid():
+        item.alink = request.POST['alink']
+        item.nickname = request.POST['nickname']
+        item.save()
+        return redirect('metrics')
+    else:
+        return render(request, 'metrics/edit_bookmarks.html', {'form': form, 'old_url': old_url, 'old_nickname': old_nickname})
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 h4 {
@@ -11,25 +12,108 @@ nav {
     margin-bottom: 8vh;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: avenir;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+main {
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+/* NAV items from about.css */
+
+nav li{
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+
+}
+
+h2 {
+    margin-bottom: 5vh;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.btn {
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #3F8939;
+}
+
+.btn-success:hover {
+    background-color: #87ECA8;
+}
+
+.btn-block {
+    padding: 10px 100px;
+    margin-bottom: 100px;
+}
+
+button:hover {
+    background-color: #999999;
+}
+
+.card-body {
+    background-color: #87ECA8;
+}
+
+.card-title, .card-text {
+    text-align: center;
+}
+
+footer {
+    background-color: #87ECA8;
+    height: 100px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+
+.team {
+    text-decoration: none;
+}
+
+
+/*   ----------END nav--------  */
+
 
 main {
     width: 100vw;
 }
 
-.menu {
-    padding: 0;
+
+footer {
+    background-color: #87ECA8;
+    height: 100px;
+    padding: 40px;
+    text-align: center;
 }
 
-.menu_items {
-    padding-right: 2vw;
+
+
+.logo-one {
+    color: #3F8939;
 }
 
-.delete_link {
-   padding: 4vh;
-
+.logo-two {
+ color: #87ECA8;
 }
-/* END OVERRIDES */
-
 
 
 .whitebox {

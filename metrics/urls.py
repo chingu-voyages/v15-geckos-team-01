@@ -15,4 +15,6 @@ urlpatterns = [
     path('add_GoalThree', views.add_GoalThree, name="add_GoalThree"),
     path('add_Bookmark', views.add_Bookmark, name="add_Bookmark"),
     path('delete_Bookmark/<url_id>', views.delete_Bookmark, name="delete_Bookmark"),
+    path('edit_bookmark/<url_id>', views.edit_bookmark, name="edit_bookmark"),
+    path('change_bookmark/<url_id>', views.change_bookmark, name="change_bookmark"),
 ]
