@@ -12,6 +12,10 @@ a {
     color: inherit;
 }
 
+p a{
+    color: green;
+}
+
 .btn {
     font-weight: bold;
 }
@@ -49,11 +53,17 @@ footer {
 }
 
 .imagebox {
+    align-items: center;
+    justify-content: center;
+    display: flex;
     background-color: #000000;
 }
 
 .imagebox-two {
     padding-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .logo-one {

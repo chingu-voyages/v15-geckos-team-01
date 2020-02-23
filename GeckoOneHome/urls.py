@@ -11,6 +11,10 @@ urlpatterns = [
     path('contact', views.load_contact, name='contact'),
     path('', include('metrics.urls'), name='metrics'),
     path('about', views.load_about, name="about"),
+    path('remove', views.load_delete, name="remove"),
+    path('remove_absolute', views.delete_user, name="remove_absolute"),
 ]
+
+#path('deleteGoal/<goal_id>', views.deleteGoal, name="deleteGoal"),
 
 #path('change-password/', auth_views.PasswordChangeView.as_view(template_name='change-password.html'), name='change-password'),

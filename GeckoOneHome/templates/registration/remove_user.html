@@ -1,32 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <!--  viewport for mobile users -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--favicon-->
     <link rel="shortcut icon" type="shortcut icon" href="{% static 'images/CT_favicon.png' %}" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    <!-- links to our css(optional) and javascript file-->
+    <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+     <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
+
+
+    <!-- DJANGO LINKS -->
 
 
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap_home.css' %}">
-
-    <title>CodeTrack</title>
-
-  </head>
+     <link rel=stylesheet href="{% static 'css/login_custom.css' %}"/>
 
 
-  <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <title>The Code Track</title>
+
+</head>
+
+<body style="background-repeat: no-repeat;">
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="/"><strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,33 +68,30 @@
     </nav>
 
 
-    <!--  END NAV  --- Start page -->
-
-
-    <div class="container">
-        <div class="row">
-        <div class="col first">
-            <h1>Welcome to <strong><span class="logo-one">Code</span><span class="logo-two">Track</span></strong>,
-            the place to map out your
-            coding journey with other learners.
-            </h1>
-            <h4>Level up your learning with shared coding
-            resources, tips, and accountability partners.
-            </h4>
-            <button type="button" class="btn btn-lg btn-success cust custom-btn"><a href="{% url 'signup' %}">Sign Up</a></button>
-            <button type="button" class="btn btn-lg btn-secondary cust custom-btn"><a href="{% url 'about' %}">Learn More</a></button>
-            <button type="button" class="btn btn-lg btn-secondary cust custom-btn"><a href="{% url 'remove' %}">Delete my Account</a></button>
-        </div>
-        <div class="col second">
-            <img class="image" src="{% static 'images/CodeTrack_Hero_Image.png' %}" alt="codetrack hero image (road)">
-        </div>
-        </div>
-    </div>
 
 
 
-  </body>
-   <footer>
+<main>
+<div class="flex_column">
+
+<h2>Delete my Account</h2>
+<p>
+    WARNING:
+    If this account is deleted, there is no way to retrieve it.
+    All data associated, including user email-login and data will be removed.
+</p>
+
+  {% if user.is_authenticated %}
+  <h3> We're sorry you need to go. </h3>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'remove_absolute' %}">DELETE MY ACCOUNT</a></button>
+  {% else %}
+  <h5> You are not currently logged in. </h5>
+  <h5> Users must be logged in to verify they are the holder of the account to delete it.</h5>
+  {% endif %}
+
+</div>
+</main>
+  <footer>
         <p>Built by <a href="#" class="team">The CodeTrack Team</a> 🔥</p>
     </footer>
 
@@ -100,5 +104,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-
+</body>
 </html>

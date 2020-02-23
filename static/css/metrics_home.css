@@ -29,8 +29,7 @@ li {
 }
 
 #todo_list_item {
-    color: #800818;
-    font-style: italic;
+    color: #0d6317;
 }
 
 
@@ -102,7 +101,7 @@ li {
 }
 
 .bookmarks_link {
-    color: purple;
+    color: #0d6317;
 }
 
 .btn-outline-success {

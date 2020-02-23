@@ -4,8 +4,10 @@ from django.shortcuts import render
 #from django.views import generic
 from django.shortcuts import redirect
 from django.contrib.auth import login, authenticate
+from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from GeckoOneHome.forms import SignUpForm
+from .models import MyUser
 
 # --- USER change password ---#
 #-- IMPORTANT!  Not in use yet ---#
@@ -46,6 +48,29 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+def load_delete(request):
+
+    return render(request, 'registration/remove_user.html')
+
+
+#--------  DELETE ACCOUNT -----#
+def delete_user(request):
+
+    if request.user.is_authenticated:
+
+        user_id = request.user.id
+        logout(request)
+        MyUser.objects.get(pk=user_id).delete()
+
+
+        return redirect('home')
+
+    else:
+
+        return render(request, 'registration/remove_user.html')
+
+
+#------- end delete ----#
 
 def load_faq(request):
 

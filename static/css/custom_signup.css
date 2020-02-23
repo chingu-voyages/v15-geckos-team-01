@@ -9,3 +9,8 @@ li {
 .flex_column {
     margin-left: 10vw;
 }
+
+
+input[type=text] {
+    font-family: monospace;
+}

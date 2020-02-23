@@ -239,3 +239,7 @@ h1{
     color: rgb(15, 0, 15);
     padding: 10px;
 }
+
+input[type=text] {
+    font-family: monospace;
+}

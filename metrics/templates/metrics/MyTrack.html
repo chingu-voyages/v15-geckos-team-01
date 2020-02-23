@@ -3,7 +3,7 @@
 
 <!--
 --------------
-user access page.  Set goals, bookmarks, and a to-do list
+user access page.  Set goals, bookmarks, and a todo list
 -------------
 -->
 <html lang="en">
@@ -227,7 +227,7 @@ user access page.  Set goals, bookmarks, and a to-do list
 
               <!--- TODO Form --->
 
-                <h3>Add Tasks To Your To-Do List:</h3>
+                <h3>Add Tasks To Your Todo List:</h3>
                 <div class="form-group">
                 <form action="{% url 'addGoal' %}" method="POST" role="form">
                     {% csrf_token %}
@@ -250,7 +250,6 @@ user access page.  Set goals, bookmarks, and a to-do list
                 {% if goal.id %}
                 <span>
                 <button type="button" class="btn btn-outline-success cust" id="delete_link"><a  class="delete_link" href="{% url 'deleteGoal' goal.id %}">Delete</a></button>
-                <button type="button" class="btn btn-outline-success cust">Edit</button>
                 </span>
 
 
